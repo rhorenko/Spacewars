@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/layout" android:background="@drawable/bg_initial_no_logo" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:myapp="http://schemas.android.com/apk/res/com.bestcoolfungames.antsmasher">
+    <RelativeLayout android:id="@id/highscoresInLayout" android:layout_width="wrap_content" android:layout_height="485.0dip" android:layout_centerHorizontal="true">
+        <RelativeLayout android:id="@id/scores_table" android:background="@drawable/score_table" android:layout_width="279.0dip" android:layout_height="302.0dip" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="50.0sp" android:textColor="#ff220000" android:gravity="center_horizontal" android:id="@id/scoresTableText" android:background="#00000000" android:layout_width="300.0dip" android:layout_height="wrap_content" android:layout_marginTop="7.0dip" android:text="@string/highest_scores" android:shadowColor="#ff000000" android:shadowRadius="8.0" android:layout_centerHorizontal="true" />
+        <ImageView android:id="@id/backButton" android:background="@drawable/menu" android:layout_width="100.0dip" android:layout_height="52.0dip" android:text="" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        <ImageView android:id="@id/localButton" android:background="@drawable/local_on" android:layout_width="142.0dip" android:layout_height="89.0dip" android:text="" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" android:scaleX="0.85" android:scaleY="0.85" />
+        <ImageView android:id="@id/globalButton" android:background="@drawable/global_off" android:layout_width="142.0dip" android:layout_height="89.0dip" android:text="" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:scaleX="0.85" android:scaleY="0.85" />
+    </RelativeLayout>
+</RelativeLayout>

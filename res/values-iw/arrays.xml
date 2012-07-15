@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="image_sources_first_time">
+        <item>מהגלריה</item>
+        <item>מהמצלמה</item>
+    </string-array>
+    <string-array name="image_sources">
+        <item>מהגלריה</item>
+        <item>מהמצלמה</item>
+        <item>נחתך לאחרונה</item>
+    </string-array>
+    <string-array name="image_sources_test">
+        <item>מהגלריה</item>
+        <item>מהמצלמה</item>
+        <item>נחתך לאחרונה</item>
+        <item>test</item>
+    </string-array>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/userInfoLayout" android:background="@drawable/bg_form" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:myapp="http://schemas.android.com/apk/res/com.bestcoolfungames.antsmasher">
+    <RelativeLayout android:id="@id/formBox" android:layout_width="288.0dip" android:layout_height="398.0dip" android:layout_centerHorizontal="true">
+        <RelativeLayout android:id="@id/formButtonsBox" android:background="@drawable/form_box_gender" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/formAgeBox" android:layout_alignParentLeft="true">
+            <Button android:id="@id/maleButton" android:background="@drawable/bt_male" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" />
+            <Button android:id="@id/femaleButton" android:background="@drawable/bt_female" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/formAgeBox" android:background="@drawable/form_box_year" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
+            <EditText android:textSize="20.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/yearText" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1899" android:cursorVisible="true" android:maxLines="1" android:selectAllOnFocus="true" android:maxLength="4" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:inputType="phone" />
+        </RelativeLayout>
+        <Button android:id="@id/submitButton" android:background="@drawable/bt_form_submit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/formButtonsBox" android:layout_centerHorizontal="true" />
+        <Button android:id="@id/infoButton" android:background="@drawable/bt_form_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</RelativeLayout>

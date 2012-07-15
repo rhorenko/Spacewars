@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/layoutImageCropper" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.bestcoolfungames.imagecropper.CropImageView android:id="@id/previewx" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="5.0" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="true" android:layout_weight="1.0"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <Button android:id="@id/button_crop" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/crop" android:layout_weight="1.0" />
+        <Button android:id="@id/button_rotate" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/rotate" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

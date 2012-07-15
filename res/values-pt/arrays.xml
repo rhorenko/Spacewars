@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="image_sources_first_time">
+        <item>da Galeria</item>
+        <item>da Câmera</item>
+    </string-array>
+    <string-array name="image_sources">
+        <item>da Galeria</item>
+        <item>da Câmera</item>
+        <item>última Foto</item>
+    </string-array>
+</resources>

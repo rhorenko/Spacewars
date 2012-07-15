@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/tutorialLayout" android:background="@drawable/bg_game" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:myapp="http://schemas.android.com/apk/res/com.bestcoolfungames.antsmasher">
+    <ImageView android:id="@id/scoreBar" android:background="@drawable/upper_bar" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:text="" />
+    <ImageView android:id="@id/generic" android:layout_width="1.0dip" android:layout_height="1.0dip" android:layout_marginLeft="-2.0dip" android:layout_marginTop="-2.0dip" android:text="" />
+    <ImageView android:id="@id/life1" android:layout_width="25.0dip" android:layout_height="25.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="110.0dip" android:text="" android:layout_alignParentRight="true" />
+    <ImageView android:id="@id/life2" android:layout_width="25.0dip" android:layout_height="25.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="85.0dip" android:text="" android:layout_alignParentRight="true" />
+    <ImageView android:id="@id/life3" android:layout_width="25.0dip" android:layout_height="25.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="60.0dip" android:text="" android:layout_alignParentRight="true" />
+    <ImageView android:id="@id/life4" android:layout_width="25.0dip" android:layout_height="25.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="35.0dip" android:text="" android:layout_alignParentRight="true" />
+    <ImageView android:id="@id/life5" android:layout_width="25.0dip" android:layout_height="25.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="10.0dip" android:text="" android:layout_alignParentRight="true" />
+    <ImageView android:id="@id/pauseButton" android:background="@drawable/pause" android:layout_width="35.0dip" android:layout_height="35.0dip" android:layout_marginTop="0.0dip" android:text="" android:layout_centerHorizontal="true" />
+</RelativeLayout>

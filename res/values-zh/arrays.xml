@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="image_sources_first_time">
+        <item>来自图片库</item>
+        <item>来自相机</item>
+    </string-array>
+    <string-array name="image_sources">
+        <item>来自图片库</item>
+        <item>来自相机</item>
+        <item>上次修剪</item>
+    </string-array>
+    <string-array name="image_sources_test">
+        <item>来自图片库</item>
+        <item>来自相机</item>
+        <item>上次修剪</item>
+        <item>test</item>
+    </string-array>
+</resources>

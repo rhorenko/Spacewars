@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="image_sources_first_time">
+        <item>de la gallerie</item>
+        <item>de la caméra</item>
+    </string-array>
+    <string-array name="image_sources">
+        <item>de la gallerie</item>
+        <item>de la caméra</item>
+        <item>dernier crop</item>
+    </string-array>
+    <string-array name="image_sources_test">
+        <item>de la gallerie</item>
+        <item>de la caméra</item>
+        <item>dernier crop</item>
+        <item>test</item>
+    </string-array>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/moreGamesLayout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="25.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/backText" android:background="#ff666666" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/loading" android:maxLines="1" />
+    <WebView android:id="@id/webview" android:layout_width="fill_parent" android:layout_height="fill_parent"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+</LinearLayout>
