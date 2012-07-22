@@ -52,10 +52,13 @@ public class Level01 extends GameSurface {
         arrayOfBoolean[k] = true;
         shipOrder[b1][j] = k;
         ++j;
+        break;// !!! delete this break
       }
-      //b2 = 1;
+      
+      b2 = 1;
+      break;// !!! delete this break
     }
-    ; 
+    
 
 
     

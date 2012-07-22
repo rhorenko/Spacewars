@@ -10,8 +10,8 @@ public class Level13 extends GameSurface
     int j;
     int i1;
     byte b;
-    paceY = (3 + Constants.initial_speed_increment);
-    paceX = 2;
+    tempY = (3 + Constants.initial_speed_increment);
+    tempX = 2;
     objectPadding = 150;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 1;
@@ -110,11 +110,11 @@ public class Level13 extends GameSurface
           while (i >= numberOfAntsWithType[b1])
             ++b1;
           if (smashed[b1][i] == 0)
-            ants[b1][i].setPosition(ants[b1][i].getLeft(), ants[b1][i].getTop() + Math.round(paceY * scale * (1F + f)));
+            ants[b1][i].setPosition(ants[b1][i].getLeft(), ants[b1][i].getTop() + Math.round(tempY * scale * (1F + f)));
           ++i;
         }
       }
-      bees[b2].setPosition(bees[b2].getLeft(), bees[b2].getTop() + Math.round(paceY * scale * (1F + f)));
+      bees[b2].setPosition(bees[b2].getLeft(), bees[b2].getTop() + Math.round(tempY * scale * (1F + f)));
       ++b2;
     }
   }

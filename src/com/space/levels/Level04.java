@@ -11,8 +11,8 @@ public class Level04 extends GameSurface
     int j;
     byte b2;
     byte b3;
-    paceY = (4 + Constants.initial_speed_increment);
-    paceX = 5;
+    tempY = (4 + Constants.initial_speed_increment);
+    tempX = 5;
     objectPadding = 450;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 2;
@@ -107,8 +107,8 @@ public class Level04 extends GameSurface
         if (ants[b][i].getLeft() < 0)
           antDirection[b][i] = 1;
         float f = acceleration() / 60.0F;
-        ants[b][i].setPosition(Math.round(ants[b][i].getLeft() + f * antDirection[b][i] * paceX), ants[b][i].getTop() + (int)(paceY * scale * (1F + f / 3.0F)));
-        double d = Math.atan2((int)(f * antDirection[b][i] * paceX), (int)(paceY * scale * (1F + f / 3.0F)));
+        ants[b][i].setPosition(Math.round(ants[b][i].getLeft() + f * antDirection[b][i] * tempX), ants[b][i].getTop() + (int)(tempY * scale * (1F + f / 3.0F)));
+        double d = Math.atan2((int)(f * antDirection[b][i] * tempX), (int)(tempY * scale * (1F + f / 3.0F)));
         antAngle[b][i] = (180 + -(int)Math.toDegrees(d));
       }
       ++i;

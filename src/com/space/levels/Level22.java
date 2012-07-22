@@ -15,8 +15,8 @@ public class Level22 extends GameSurface
     SurfaceBitmap localSurfaceBitmap;
     int i1;
     byte b4;
-    paceY = (4 + Constants.initial_speed_increment);
-    paceX = 4;
+    tempY = (4 + Constants.initial_speed_increment);
+    tempX = 4;
     objectPadding = 170;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 2;
@@ -136,7 +136,7 @@ public class Level22 extends GameSurface
           int[] arrayOfInt = antDirection[b];
           arrayOfInt[i] = (-1 * arrayOfInt[i]);
         }
-        ants[b][i].setPosition((int)Math.round(ants[b][i].getLeft() + paceX * Math.sin(Math.toRadians(antAngle[b][i]))), (int)Math.round(ants[b][i].getTop() - (f + paceY) * Math.cos(Math.toRadians(antAngle[b][i]))));
+        ants[b][i].setPosition((int)Math.round(ants[b][i].getLeft() + tempX * Math.sin(Math.toRadians(antAngle[b][i]))), (int)Math.round(ants[b][i].getTop() - (f + tempY) * Math.cos(Math.toRadians(antAngle[b][i]))));
       }
       ++i;
     }

@@ -1,7 +1,10 @@
 package com.space.levels;
 
 import java.lang.reflect.Array;
-import java.util.Random;
+
+import com.space.game.GameSurface;
+import com.space.game.SurfaceBitmap;
+import com.space.wars.Constants;
 
 public class Level32 extends GameSurface
 {
@@ -15,28 +18,28 @@ public class Level32 extends GameSurface
     int j;
     byte b2;
     byte b3;
-    paceY = (2 + Constants.initial_speed_increment);
-    paceX = 3;
+    tempY = (2 + Constants.initial_speed_increment);
+    tempX = 3;
     objectPadding = 120;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[7] = 3;
-    numberOfAntsWithType = arrayOfInt1;
+    numberOfshipsWithType = arrayOfInt1;
     int[] arrayOfInt2 = new int[2];
     arrayOfInt2[0] = 9;
     arrayOfInt2[1] = 10;
-    antAngle = ((int[][])Array.newInstance(Integer.TYPE, arrayOfInt2));
+    shipAngle = ((int[][])Array.newInstance(Integer.TYPE, arrayOfInt2));
     int[] arrayOfInt3 = new int[2];
     arrayOfInt3[0] = 9;
     arrayOfInt3[1] = 10;
-    antOrder = ((int[][])Array.newInstance(Integer.TYPE, arrayOfInt3));
+    shipOrder = ((int[][])Array.newInstance(Integer.TYPE, arrayOfInt3));
     int[] arrayOfInt4 = new int[2];
     arrayOfInt4[0] = 9;
     arrayOfInt4[1] = 10;
-    antDirection = ((int[][])Array.newInstance(Integer.TYPE, arrayOfInt4));
+    shipDirection = ((int[][])Array.newInstance(Integer.TYPE, arrayOfInt4));
     int[] arrayOfInt5 = new int[2];
     arrayOfInt5[0] = 9;
     arrayOfInt5[1] = 10;
-    antMovementAngle = ((int[][])Array.newInstance(Integer.TYPE, arrayOfInt5));
+    shipMovementAngle = ((int[][])Array.newInstance(Integer.TYPE, arrayOfInt5));
     beeAngle = new int[9];
     beeDirection = new int[9];
     beeOrder = new int[9];
@@ -60,13 +63,13 @@ public class Level32 extends GameSurface
         ++i;
       }
       j = 0;
-      if (j < numberOfAntsWithType[b1])
+      if (j < numberOfshipsWithType[b1])
         break;
       ++b1;
     }
-    antAngle[b1][j] = 180;
-    antMovementAngle[b1][j] = 180;
-    int[] arrayOfInt6 = antDirection[b1];
+    shipAngle[b1][j] = 180;
+    shipMovementAngle[b1][j] = 180;
+    int[] arrayOfInt6 = shipDirection[b1];
     if (rand.nextInt(2) == 0)
       b2 = -1;
     while (true)
@@ -82,16 +85,16 @@ public class Level32 extends GameSurface
     while (true)
     {
       int l;
-      while (k >= numberOfAntsWithType[b3])
+      while (k >= numberOfshipsWithType[b3])
         ++b3;
       do
         l = rand.nextInt(numberOfObjects);
       while (arrayOfBoolean[l] != 0);
       arrayOfBoolean[l] = true;
-      antOrder[b3][k] = l;
-      ants[b3][k] = new SurfaceBitmap();
-      antCounter = (1 + antCounter);
-      ants[b3][k].setPosition(160 - antWidth / 2, -250 + k * objectPadding);
+      shipOrder[b3][k] = l;
+      ships[b3][k] = new SurfaceBitmap();
+      shipCounter = (1 + shipCounter);
+      ships[b3][k].setPosition(160 - shipWidth / 2, -250 + k * objectPadding);
       ++k;
     }
   }
@@ -109,28 +112,28 @@ public class Level32 extends GameSurface
     {
       if (b >= 9);
       i = 0;
-      if (i < numberOfAntsWithType[b])
+      if (i < numberOfshipsWithType[b])
         break;
       ++b;
     }
     if (smashed[b][i] == 0)
     {
-      if (ants[b][i].getLeft() > mCanvasWidth - ants[b][i].getWidth())
-        antMovementAngle[b][i] = 216;
-      if (ants[b][i].getLeft() < 0)
-        antMovementAngle[b][i] = 144;
+      if (ships[b][i].getLeft() > mCanvasWidth - ships[b][i].getWidth())
+        shipMovementAngle[b][i] = 216;
+      if (ships[b][i].getLeft() < 0)
+        shipMovementAngle[b][i] = 144;
       if (rand.nextInt(10) < 2)
       {
-        int[] arrayOfInt2 = antDirection[b];
+        int[] arrayOfInt2 = shipDirection[b];
         arrayOfInt2[i] = (-1 * arrayOfInt2[i]);
       }
-      if (antMovementAngle[b][i] > 300)
-        antMovementAngle[b][i] = 144;
-      if (antMovementAngle[b][i] < 60)
-        antMovementAngle[b][i] = 216;
-      int[] arrayOfInt1 = antMovementAngle[b];
-      arrayOfInt1[i] = (arrayOfInt1[i] + 5 * antDirection[b][i]);
-      if (antLife[b][i] != 2)
+      if (shipMovementAngle[b][i] > 300)
+        shipMovementAngle[b][i] = 144;
+      if (shipMovementAngle[b][i] < 60)
+        shipMovementAngle[b][i] = 216;
+      int[] arrayOfInt1 = shipMovementAngle[b];
+      arrayOfInt1[i] = (arrayOfInt1[i] + 5 * shipDirection[b][i]);
+      if (shipLife[b][i] != 2)
         break label412;
       j = 0;
     }
@@ -139,9 +142,9 @@ public class Level32 extends GameSurface
       while (true)
       {
         float f = acceleration() / 100.0F;
-        ants[b][i].setPosition((int)Math.round(ants[b][i].getLeft() - Math.sin(Math.toRadians(180 + antMovementAngle[b][i])) * (j + paceX)), ants[b][i].getTop() + (int)((j + paceY) * scale * (1F + f)));
-        double d = Math.atan2(-Math.sin(Math.toRadians(180 + antMovementAngle[b][i])) * (j + paceX), (int)((j + paceY) * scale * (1F + f)));
-        antAngle[b][i] = (180 + -(int)Math.toDegrees(d));
+        ships[b][i].setPosition((int)Math.round(ships[b][i].getLeft() - Math.sin(Math.toRadians(180 + shipMovementAngle[b][i])) * (j + tempX)), ships[b][i].getTop() + (int)((j + tempY) * scale * (1F + f)));
+        double d = Math.atan2(-Math.sin(Math.toRadians(180 + shipMovementAngle[b][i])) * (j + tempX), (int)((j + tempY) * scale * (1F + f)));
+        shipAngle[b][i] = (180 + -(int)Math.toDegrees(d));
         ++i;
       }
       label412: j = 1;

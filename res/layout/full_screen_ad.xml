@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:id="@id/layoutRoot" android:layout_width="wrap_content" android:layout_height="wrap_content" android:baselineAligned="true"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/fullScreenAdImage" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/bcfads_fullscreen_ad" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/layoutRoot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:baselineAligned="true"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@id/fullScreenAdImage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bcfads_fullscreen_ad" />
+
 </LinearLayout>

@@ -14,8 +14,8 @@ public class Level09 extends GameSurface
     byte b3;
     byte b4;
     int i2;
-    paceY = (3 + Constants.initial_speed_increment);
-    paceX = 4;
+    tempY = (3 + Constants.initial_speed_increment);
+    tempX = 4;
     objectPadding = 170;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 3;
@@ -132,7 +132,7 @@ public class Level09 extends GameSurface
       {
         if (j >= numberOfBees);
         beeAngle[j] = (int)Math.round(beeAngle[j] + 2.6000000000000001D * beeDirection[j]);
-        bees[j].setPosition(bees[j].getLeft() - (int)(Math.sin(Math.toRadians(180 + beeAngle[j])) * paceX), 2 + bees[j].getTop() - (int)(Math.cos(Math.toRadians(beeAngle[j])) * paceY));
+        bees[j].setPosition(bees[j].getLeft() - (int)(Math.sin(Math.toRadians(180 + beeAngle[j])) * tempX), 2 + bees[j].getTop() - (int)(Math.cos(Math.toRadians(beeAngle[j])) * tempY));
         ++j;
       }
     }
@@ -148,8 +148,8 @@ public class Level09 extends GameSurface
         if (ants[b][i].getLeft() < 0)
           antDirection[b][i] = 1;
         float f = acceleration() / 50.0F;
-        ants[b][i].setPosition(Math.round(ants[b][i].getLeft() + antDirection[b][i] * paceX * (f + 1F)), ants[b][i].getTop() + (int)(paceY * scale * (1F + f / 3.0F)));
-        double d = Math.atan2(antDirection[b][i] * paceX * (f + 1F), paceY * scale * (1F + f / 3.0F));
+        ants[b][i].setPosition(Math.round(ants[b][i].getLeft() + antDirection[b][i] * tempX * (f + 1F)), ants[b][i].getTop() + (int)(tempY * scale * (1F + f / 3.0F)));
+        double d = Math.atan2(antDirection[b][i] * tempX * (f + 1F), tempY * scale * (1F + f / 3.0F));
         antAngle[b][i] = (180 + -(int)Math.toDegrees(d));
       }
       ++i;

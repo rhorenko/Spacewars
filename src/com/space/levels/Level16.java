@@ -11,8 +11,8 @@ public class Level16 extends GameSurface
     int j;
     byte b2;
     byte b3;
-    paceY = (3 + Constants.initial_speed_increment);
-    paceX = 4;
+    tempY = (3 + Constants.initial_speed_increment);
+    tempX = 4;
     objectPadding = 100;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 2;
@@ -108,7 +108,7 @@ public class Level16 extends GameSurface
     }
     if (smashed[b1][i] == 0)
     {
-      j = Math.round(f + paceY);
+      j = Math.round(f + tempY);
       int k = Math.round(j * 9 / 16.0F);
       if (!(ants[b1][i].getTop() < -0.5D * ants[b1][i].getHeight()))
         break label225;

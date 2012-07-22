@@ -11,8 +11,8 @@ public class Level08 extends GameSurface
     int k;
     byte b4;
     int i2;
-    paceY = (3 + Constants.initial_speed_increment);
-    paceX = 4;
+    tempY = (3 + Constants.initial_speed_increment);
+    tempX = 4;
     objectPadding = 170;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 3;
@@ -142,7 +142,7 @@ public class Level08 extends GameSurface
       while (true)
       {
         if (j >= numberOfBees);
-        bees[j].setPosition(bees[j].getLeft(), bees[j].getTop() + (int)(paceY * scale * (1F + f)));
+        bees[j].setPosition(bees[j].getLeft(), bees[j].getTop() + (int)(tempY * scale * (1F + f)));
         ++j;
       }
     }
@@ -152,7 +152,7 @@ public class Level08 extends GameSurface
       while (i >= numberOfAntsWithType[b])
         ++b;
       if (smashed[b][i] == 0)
-        ants[b][i].setPosition(ants[b][i].getLeft(), ants[b][i].getTop() + (int)(paceY * scale * (1F + f)));
+        ants[b][i].setPosition(ants[b][i].getLeft(), ants[b][i].getTop() + (int)(tempY * scale * (1F + f)));
       ++i;
     }
   }

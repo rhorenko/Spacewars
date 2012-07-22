@@ -13,8 +13,8 @@ public class Level25 extends GameSurface
     int k;
     byte b3;
     int i2;
-    paceY = (2 + Constants.initial_speed_increment);
-    paceX = 90;
+    tempY = (2 + Constants.initial_speed_increment);
+    tempX = 90;
     objectPadding = 250;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 2;
@@ -128,7 +128,7 @@ public class Level25 extends GameSurface
         if (j >= numberOfBees);
         int[] arrayOfInt = beeMovementAngle;
         arrayOfInt[j] = (arrayOfInt[j] + 5 * beeDirection[j]);
-        bees[j].setPosition((int)Math.round(mCanvasWidth / 2 - bees[j].getWidth() / 2 - Math.sin(Math.toRadians(beeMovementAngle[j])) * paceX), bees[j].getTop() + (int)(paceY * scale * (1F + f)));
+        bees[j].setPosition((int)Math.round(mCanvasWidth / 2 - bees[j].getWidth() / 2 - Math.sin(Math.toRadians(beeMovementAngle[j])) * tempX), bees[j].getTop() + (int)(tempY * scale * (1F + f)));
         ++j;
       }
     }
@@ -138,7 +138,7 @@ public class Level25 extends GameSurface
       while (i >= numberOfAntsWithType[b])
         ++b;
       if (smashed[b][i] == 0)
-        ants[b][i].setPosition(ants[b][i].getLeft(), ants[b][i].getTop() + (int)(paceY * scale * (1F + f)));
+        ants[b][i].setPosition(ants[b][i].getLeft(), ants[b][i].getTop() + (int)(tempY * scale * (1F + f)));
       ++i;
     }
   }

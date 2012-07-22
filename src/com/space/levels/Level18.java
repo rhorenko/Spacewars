@@ -35,8 +35,8 @@ public class Level18 extends GameSurface
   {
     int j;
     int i2;
-    paceY = (2 + Constants.initial_speed_increment);
-    paceX = 2;
+    tempY = (2 + Constants.initial_speed_increment);
+    tempX = 2;
     objectPadding = 350;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 1;
@@ -129,8 +129,8 @@ public class Level18 extends GameSurface
       ants[i3][i4].setPosition(160 - antWidth / 2 + -30 + InitialView.rand.nextInt(61), Math.max(antLastTop[i3][i4], -100));
       antsInOrder[i2] = ants[(k[i2] / numberOfObjects)][(k[i2] % numberOfObjects)];
       bees[i2] = new SurfaceBitmap();
-      beeLastTop[i2] = (int)(antLastTop[i3][i4] - Math.cos(beeAngle[i2]) * paceX);
-      beeLastLeft[i2] = (int)(ants[i3][i4].getLeft() - Math.sin(3.1415000000000002D + beeAngle[i2]) * paceX);
+      beeLastTop[i2] = (int)(antLastTop[i3][i4] - Math.cos(beeAngle[i2]) * tempX);
+      beeLastLeft[i2] = (int)(ants[i3][i4].getLeft() - Math.sin(3.1415000000000002D + beeAngle[i2]) * tempX);
       bees[i2].setPosition(fixLeft(beeLastLeft[i2]), Math.max(beeLastTop[i2], -100));
       ++i2;
     }
@@ -155,9 +155,9 @@ public class Level18 extends GameSurface
       if (ants[j][l].getLeft() < 0)
         antDirection[j][l] = 1;
       float f = acceleration() / 48.0F;
-      antLastTop[j][l] = (antLastTop[j][l] + (int)(paceY * scale * (1F + f / 3.0F)));
-      ants[j][l].setPosition(Math.round(ants[j][l].getLeft() + f * antDirection[j][l] * paceX), Math.max(antLastTop[j][l], -100));
-      double d = Math.atan2(f * antDirection[j][l] * paceX, paceY * scale * (1F + f / 3.0F));
+      antLastTop[j][l] = (antLastTop[j][l] + (int)(tempY * scale * (1F + f / 3.0F)));
+      ants[j][l].setPosition(Math.round(ants[j][l].getLeft() + f * antDirection[j][l] * tempX), Math.max(antLastTop[j][l], -100));
+      double d = Math.atan2(f * antDirection[j][l] * tempX, tempY * scale * (1F + f / 3.0F));
       antAngle[j][l] = (180 + -(int)Math.toDegrees(d));
     }
     if (smashed[j][l] == 0)

@@ -15,8 +15,8 @@ public class Level21 extends GameSurface
     int j;
     byte b2;
     byte b3;
-    paceY = (3 + Constants.initial_speed_increment);
-    paceX = 2;
+    tempY = (3 + Constants.initial_speed_increment);
+    tempX = 2;
     objectPadding = 150;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 3;
@@ -142,7 +142,7 @@ public class Level21 extends GameSurface
           movementAngle[b][i] = 180;
         }
         float f = acceleration() / 20.0F;
-        ants[b][i].setPosition(ants[b][i].getLeft(), ants[b][i].getTop() - (int)(Math.cos(Math.toRadians(movementAngle[b][i])) * (f + paceY)));
+        ants[b][i].setPosition(ants[b][i].getLeft(), ants[b][i].getTop() - (int)(Math.cos(Math.toRadians(movementAngle[b][i])) * (f + tempY)));
       }
       ++i;
     }

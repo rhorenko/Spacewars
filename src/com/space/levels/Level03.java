@@ -3,6 +3,10 @@ package com.space.levels;
 import java.lang.reflect.Array;
 import java.util.Random;
 
+import com.space.game.GameSurface;
+import com.space.game.SurfaceBitmap;
+import com.space.wars.Constants;
+
 public class Level03 extends GameSurface
 {
   private int[][] lastTop;
@@ -28,8 +32,8 @@ public class Level03 extends GameSurface
     int[] arrayOfInt8;
     int i5;
     byte b2;
-    paceY = (3 + Constants.initial_speed_increment);
-    paceX = 7;
+    tempY = (3 + Constants.initial_speed_increment);
+    tempX = 7;
     objectPadding = 190;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 5;
@@ -113,8 +117,8 @@ public class Level03 extends GameSurface
         arrayOfInt7[(i5 / 8)] = l;
         arrayOfInt8[(i5 / 8)] = (i2 * -1);
       }
-      i4 = (int)(i4 + Math.sin(Math.toRadians(l + 180)) * paceX);
-      i3 = (int)(i3 + 2.0D * Math.cos(Math.toRadians(l)) * paceY);
+      i4 = (int)(i4 + Math.sin(Math.toRadians(l + 180)) * tempX);
+      i3 = (int)(i3 + 2.0D * Math.cos(Math.toRadians(l)) * tempY);
       if ((l > 225) || (l < 135))
         i2 = i2 * -1;
       int i1 = l + i2 * 4;
@@ -159,8 +163,8 @@ public class Level03 extends GameSurface
           int[] arrayOfInt = antDirection[b];
           arrayOfInt[i] = (-1 * arrayOfInt[i]);
         }
-        lastTop[b][i] = (int)Math.round(lastTop[b][i] - f * paceY * Math.cos(Math.toRadians(antAngle[b][i])));
-        ants[b][i].setPosition((int)Math.round(ants[b][i].getLeft() - paceX * Math.sin(Math.toRadians(180 + antAngle[b][i]))), Math.max(-180, lastTop[b][i]));
+        lastTop[b][i] = (int)Math.round(lastTop[b][i] - f * tempY * Math.cos(Math.toRadians(antAngle[b][i])));
+        ants[b][i].setPosition((int)Math.round(ants[b][i].getLeft() - tempX * Math.sin(Math.toRadians(180 + antAngle[b][i]))), Math.max(-180, lastTop[b][i]));
       }
       ++i;
     }

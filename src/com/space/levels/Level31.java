@@ -14,8 +14,8 @@ public class Level31 extends GameSurface
     int j;
     byte b2;
     byte b3;
-    paceY = (2 + Constants.initial_speed_increment);
-    paceX = 5;
+    tempY = (2 + Constants.initial_speed_increment);
+    tempX = 5;
     objectPadding = 120;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[6] = 1;
@@ -129,8 +129,8 @@ public class Level31 extends GameSurface
         int[] arrayOfInt1 = antMovementAngle[b];
         arrayOfInt1[i] = (arrayOfInt1[i] + 5 * antDirection[b][i]);
         float f = acceleration() / 100.0F;
-        ants[b][i].setPosition((int)Math.round(ants[b][i].getLeft() - Math.sin(Math.toRadians(180 + antMovementAngle[b][i])) * paceX), ants[b][i].getTop() + (int)(paceY * scale * (1F + f)));
-        double d = Math.atan2(-Math.sin(Math.toRadians(180 + antMovementAngle[b][i])) * paceX, (int)(paceY * scale * (1F + f)));
+        ants[b][i].setPosition((int)Math.round(ants[b][i].getLeft() - Math.sin(Math.toRadians(180 + antMovementAngle[b][i])) * tempX), ants[b][i].getTop() + (int)(tempY * scale * (1F + f)));
+        double d = Math.atan2(-Math.sin(Math.toRadians(180 + antMovementAngle[b][i])) * tempX, (int)(tempY * scale * (1F + f)));
         antAngle[b][i] = (180 + -(int)Math.toDegrees(d));
       }
       ++i;

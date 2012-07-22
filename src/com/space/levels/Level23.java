@@ -15,8 +15,8 @@ public class Level23 extends GameSurface
     int[] arrayOfInt7;
     byte b3;
     byte b4;
-    paceY = (3 + Constants.initial_speed_increment);
-    paceX = 4;
+    tempY = (3 + Constants.initial_speed_increment);
+    tempX = 4;
     objectPadding = 150;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 2;
@@ -129,7 +129,7 @@ public class Level23 extends GameSurface
       if (antDirection[b1][i] / 3 % 4 != 1)
         break label258;
       int l = 1;
-      localSurfaceBitmap.setPosition(Math.round(j + l * k * paceX), Math.round(ants[b1][i].getTop() + (f + paceY) * (1 + antDirection[b1][i] / 3) % 2));
+      localSurfaceBitmap.setPosition(Math.round(j + l * k * tempX), Math.round(ants[b1][i].getTop() + (f + tempY) * (1 + antDirection[b1][i] / 3) % 2));
       if (counter % 6 == 0)
       {
         int[] arrayOfInt2 = antDirection[b1];

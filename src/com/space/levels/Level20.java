@@ -11,8 +11,8 @@ public class Level20 extends GameSurface
     int k;
     byte b4;
     int i2;
-    paceY = (2 + Constants.initial_speed_increment);
-    paceX = 4;
+    tempY = (2 + Constants.initial_speed_increment);
+    tempX = 4;
     objectPadding = 250;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 2;
@@ -158,10 +158,10 @@ public class Level20 extends GameSurface
             beeDirection[j] = -1;
           if (bees[j].getLeft() < 0)
             beeDirection[j] = 1;
-          bees[j].setPosition(Math.round(bees[j].getLeft() + beeDirection[j] * paceX * (1F + f)), bees[j].getTop() + (int)(paceY * scale * (1F + f / 3.0F)));
-          double d2 = Math.atan2(beeDirection[j] * paceX * (1F + f), paceY * scale * (1F + f / 3.0F));
+          bees[j].setPosition(Math.round(bees[j].getLeft() + beeDirection[j] * tempX * (1F + f)), bees[j].getTop() + (int)(tempY * scale * (1F + f / 3.0F)));
+          double d2 = Math.atan2(beeDirection[j] * tempX * (1F + f), tempY * scale * (1F + f / 3.0F));
           beeAngle[j] = (180 + -(int)Math.toDegrees(d2));
-          bees[j].setPosition(bees[j].getLeft() - (int)(Math.sin(Math.toRadians(180 + beeAngle[j])) * paceX), 2 + bees[j].getTop() - (int)(Math.cos(Math.toRadians(beeAngle[j])) * paceY));
+          bees[j].setPosition(bees[j].getLeft() - (int)(Math.sin(Math.toRadians(180 + beeAngle[j])) * tempX), 2 + bees[j].getTop() - (int)(Math.cos(Math.toRadians(beeAngle[j])) * tempY));
           ++j;
         }
       }
@@ -189,8 +189,8 @@ public class Level20 extends GameSurface
         {
           if (120 + b3 * 80 - ants[b1][i].getLeft() < -(10 + antWidth / 2))
             antDirection[b1][i] = -1;
-          ants[b1][i].setPosition(Math.round(ants[b1][i].getLeft() + antDirection[b1][i] * paceX * (1F + f)), ants[b1][i].getTop() + (int)(paceY * scale * (1F + f / 3.0F)));
-          double d1 = Math.atan2(antDirection[b1][i] * paceX * (1F + f), paceY * scale * (1F + f / 3.0F));
+          ants[b1][i].setPosition(Math.round(ants[b1][i].getLeft() + antDirection[b1][i] * tempX * (1F + f)), ants[b1][i].getTop() + (int)(tempY * scale * (1F + f / 3.0F)));
+          double d1 = Math.atan2(antDirection[b1][i] * tempX * (1F + f), tempY * scale * (1F + f / 3.0F));
           antAngle[b1][i] = (180 + -(int)Math.toDegrees(d1));
           ++i;
         }

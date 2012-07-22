@@ -14,8 +14,8 @@ public class Level26 extends GameSurface
     int k;
     byte b4;
     int i2;
-    paceY = (3 + Constants.initial_speed_increment);
-    paceX = 4;
+    tempY = (3 + Constants.initial_speed_increment);
+    tempX = 4;
     objectPadding = 120;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 2;
@@ -165,8 +165,8 @@ public class Level26 extends GameSurface
           beeMovementAngle[j] = 216;
         int[] arrayOfInt3 = beeMovementAngle;
         arrayOfInt3[j] = (arrayOfInt3[j] + 5 * beeDirection[j]);
-        bees[j].setPosition((int)Math.round(bees[j].getLeft() - Math.sin(Math.toRadians(180 + beeMovementAngle[j])) * paceX), bees[j].getTop() + (int)(paceY * scale * (1F + f)));
-        double d2 = Math.atan2(-Math.sin(Math.toRadians(180 + beeMovementAngle[j])) * paceX, (int)(paceY * scale * (1F + f)));
+        bees[j].setPosition((int)Math.round(bees[j].getLeft() - Math.sin(Math.toRadians(180 + beeMovementAngle[j])) * tempX), bees[j].getTop() + (int)(tempY * scale * (1F + f)));
+        double d2 = Math.atan2(-Math.sin(Math.toRadians(180 + beeMovementAngle[j])) * tempX, (int)(tempY * scale * (1F + f)));
         beeAngle[j] = (180 + -(int)Math.toDegrees(d2));
         ++j;
       }
@@ -193,8 +193,8 @@ public class Level26 extends GameSurface
           antMovementAngle[b][i] = 216;
         int[] arrayOfInt1 = antMovementAngle[b];
         arrayOfInt1[i] = (arrayOfInt1[i] + 5 * antDirection[b][i]);
-        ants[b][i].setPosition((int)Math.round(ants[b][i].getLeft() - Math.sin(Math.toRadians(180 + antMovementAngle[b][i])) * paceX), ants[b][i].getTop() + (int)(paceY * scale * (1F + f)));
-        double d1 = Math.atan2(-Math.sin(Math.toRadians(180 + antMovementAngle[b][i])) * paceX, (int)(paceY * scale * (1F + f)));
+        ants[b][i].setPosition((int)Math.round(ants[b][i].getLeft() - Math.sin(Math.toRadians(180 + antMovementAngle[b][i])) * tempX), ants[b][i].getTop() + (int)(tempY * scale * (1F + f)));
+        double d1 = Math.atan2(-Math.sin(Math.toRadians(180 + antMovementAngle[b][i])) * tempX, (int)(tempY * scale * (1F + f)));
         antAngle[b][i] = (180 + -(int)Math.toDegrees(d1));
       }
       ++i;

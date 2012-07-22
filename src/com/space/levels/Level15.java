@@ -12,8 +12,8 @@ public class Level15 extends GameSurface
     int j;
     byte b3;
     byte b4;
-    paceY = (2 + Constants.initial_speed_increment);
-    paceX = 4;
+    Y = (2 + Constants.initial_speed_increment);
+    X = 4;
     objectPadding = 100;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[2] = 1;
@@ -121,8 +121,8 @@ public class Level15 extends GameSurface
         antDirection[b][i] = -1;
       if (ants[b][i].getLeft() < 75)
         antDirection[b][i] = 1;
-      ants[b][i].setPosition(Math.round(ants[b][i].getLeft() + f * antDirection[b][i] * paceX), ants[b][i].getTop() + (int)(paceY * scale * (1F + f)));
-      double d = Math.atan2(f * antDirection[b][i] * paceX, paceY * scale * (1F + f));
+      ants[b][i].setPosition(Math.round(ants[b][i].getLeft() + f * antDirection[b][i] * X), ants[b][i].getTop() + (int)(Y * scale * (1F + f)));
+      double d = Math.atan2(f * antDirection[b][i] * X, Y * scale * (1F + f));
       antAngle[b][i] = (180 + -(int)Math.toDegrees(d));
       bees[0].setPosition(ants[b][i].getLeft(), -105 + ants[b][i].getTop());
       bees[1].setPosition(-95 + ants[b][i].getLeft(), ants[b][i].getTop());
@@ -137,10 +137,10 @@ public class Level15 extends GameSurface
     {
       while (true)
         ++i;
-      bees[0].setPosition(bees[0].getLeft(), bees[0].getTop() + paceY);
-      bees[1].setPosition(bees[1].getLeft(), bees[1].getTop() + paceY);
-      bees[2].setPosition(bees[2].getLeft(), bees[2].getTop() + paceY);
-      bees[3].setPosition(bees[3].getLeft(), bees[3].getTop() + paceY);
+      bees[0].setPosition(bees[0].getLeft(), bees[0].getTop() + Y);
+      bees[1].setPosition(bees[1].getLeft(), bees[1].getTop() + Y);
+      bees[2].setPosition(bees[2].getLeft(), bees[2].getTop() + Y);
+      bees[3].setPosition(bees[3].getLeft(), bees[3].getTop() + Y);
       beeAngle[0] = 180;
       beeAngle[1] = 180;
       beeAngle[2] = 180;

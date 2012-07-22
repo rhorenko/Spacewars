@@ -15,8 +15,8 @@ public class Level30 extends GameSurface
     int k;
     int l;
     byte b4;
-    paceY = (3 + Constants.initial_speed_increment);
-    paceX = 4;
+    tempY = (3 + Constants.initial_speed_increment);
+    tempX = 4;
     objectPadding = 100;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 3;
@@ -137,9 +137,9 @@ public class Level30 extends GameSurface
       int j = ants[b][i].getLeft();
       if (ants[b][i].getTop() <= -ants[b][i].getHeight() / 2)
         break label407;
-      d1 = 3.0D * (f + paceY) / 4.0F;
+      d1 = 3.0D * (f + tempY) / 4.0F;
       k = j + (int)(d1 * antDirection[b][i]);
-      l = Math.round(f + ants[b][i].getTop() + paceY);
+      l = Math.round(f + ants[b][i].getTop() + tempY);
       if ((((k > mContext.getResources().getDisplayMetrics().widthPixels - ants[b][i].getWidth()) || (k < 0))) && (l > 0))
       {
         int[] arrayOfInt = antDirection[b];
@@ -147,12 +147,12 @@ public class Level30 extends GameSurface
         int i1 = ants[b][i].getLeft();
         if (ants[b][i].getTop() <= -ants[b][i].getHeight() / 2)
           break label413;
-        d4 = 3.0D * (f + paceY) / 4.0F;
+        d4 = 3.0D * (f + tempY) / 4.0F;
         k = i1 + (int)(d4 * antDirection[b][i]);
       }
       if (ants[b][i].getTop() <= -ants[b][i].getHeight() / 2)
         break label419;
-      d2 = 3.0D * (f + paceY) / 4.0F;
+      d2 = 3.0D * (f + tempY) / 4.0F;
     }
     while (true)
     {
@@ -162,7 +162,7 @@ public class Level30 extends GameSurface
         {
           while (true)
           {
-            double d3 = Math.atan2(d2 * antDirection[b][i], Math.round(f + paceY));
+            double d3 = Math.atan2(d2 * antDirection[b][i], Math.round(f + tempY));
             antAngle[b][i] = (180 + -(int)Math.toDegrees(d3));
             ants[b][i].setPosition(k, l);
             ++i;

@@ -71,7 +71,7 @@ public abstract class GameSurface
   int[] beeOrdinator;
   final int beeSizeX;
   final int beeSizeY;
-  SurfaceBitmap[] bees;
+  public SurfaceBitmap[] bees;
   int bigshipAlphaControl;
   SurfaceBitmap bonus;
   int bonusAngle;
@@ -102,7 +102,7 @@ public abstract class GameSurface
   public int tempX;
   public int tempY;
   boolean passAheadTouchEvents;
-  boolean passed;
+  public boolean passed;
   public boolean paused;
   public int proceed;
   boolean protection;
@@ -121,7 +121,7 @@ public abstract class GameSurface
     ouchBmp = null;
     bloodFrame = null;
   }
-
+  //Constructor
   public GameSurface()
   {
     shipSizeX = 50;
@@ -225,18 +225,18 @@ public abstract class GameSurface
               mp.setAudioStreamType(3);
               if (settings.getBoolean("Sound", true))
                 mp.start();
-              mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener(this)
+              mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
               {
-                public void onCompletion()
-                {
-                  if (paramMediaPlayer != null)
+                  public void onCompletion(MediaPlayer paramMediaPlayer)
                   {
-                    if (paramMediaPlayer.isPlaying())
-                      paramMediaPlayer.stop();
-                    paramMediaPlayer.release();
+                    if (paramMediaPlayer != null)
+                    {
+                      if (paramMediaPlayer.isPlaying())
+                        paramMediaPlayer.stop();
+                      paramMediaPlayer.release();
+                    }
                   }
-                }
-              });
+                });
               killingBeeCounter = 0;
               if (ouchBmp == null)
                 ouchBmp = new SurfaceBitmap(BitmapFactory.decodeResource(getResources(), 2130837577));
@@ -325,14 +325,18 @@ public abstract class GameSurface
                 mp.setAudioStreamType(3);
                 if (isSound)
                   mp.start();
-                mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener(this)
+                mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
                 {
-                  public void onCompletion()
-                  {
-                    if ((paramMediaPlayer != null) && (paramMediaPlayer.isPlaying()))
-                      paramMediaPlayer.stop();
-                  }
-                });
+                    public void onCompletion(MediaPlayer paramMediaPlayer)
+                    {
+                      if (paramMediaPlayer != null)
+                      {
+                        if (paramMediaPlayer.isPlaying())
+                          paramMediaPlayer.stop();
+                        paramMediaPlayer.release();
+                      }
+                    }
+                  });
                 return;
                 editor.putInt("Lifes", 1 + settings.getInt("Lifes", 0));
                 editor.commit();
@@ -454,7 +458,7 @@ public abstract class GameSurface
     int i;
     if (shipLife[paramInt1][paramInt2] <= 1)
     {
-      smashed[paramInt1][paramInt2] = 1;
+      smashed[paramInt1][paramInt2] = true;
       if (paramInt1 != 7)
       {
         ships[paramInt1][paramInt2].setBitmap(shipFrames[paramInt1][4]);
@@ -476,18 +480,18 @@ public abstract class GameSurface
           if ((isSound) && (mp != null))
           {
             mp.start();
-            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener(this)
+            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
             {
-              public void onCompletion()
-              {
-                if (paramMediaPlayer != null)
+                public void onCompletion(MediaPlayer paramMediaPlayer)
                 {
-                  if (paramMediaPlayer.isPlaying())
-                    paramMediaPlayer.stop();
-                  paramMediaPlayer.release();
+                  if (paramMediaPlayer != null)
+                  {
+                    if (paramMediaPlayer.isPlaying())
+                      paramMediaPlayer.stop();
+                    paramMediaPlayer.release();
+                  }
                 }
-              }
-            });
+              });
           }
         }
       }
@@ -545,18 +549,18 @@ public abstract class GameSurface
         mp.setAudioStreamType(3);
         if (isSound)
           mp.start();
-        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener(this)
+        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
         {
-          public void onCompletion()
-          {
-            if (paramMediaPlayer != null)
+            public void onCompletion(MediaPlayer paramMediaPlayer)
             {
-              if (paramMediaPlayer.isPlaying())
-                paramMediaPlayer.stop();
-              paramMediaPlayer.release();
+              if (paramMediaPlayer != null)
+              {
+                if (paramMediaPlayer.isPlaying())
+                  paramMediaPlayer.stop();
+                paramMediaPlayer.release();
+              }
             }
-          }
-        });
+          });
       }
       while (paramInt1 < 4);
       bigshipAlphaControl = 1;
@@ -817,115 +821,115 @@ public abstract class GameSurface
             if (b2 < 9)
               break label643;
             l = 0;
-            if (l < this$0.numberOfBees)
+            if (l < GameSurface.this.numberOfBees)
               break label1484;
-            if (!(this$0.isBonus))
+            if (!(GameSurface.this.isBonus))
               break label457;
             if (GameSurface.rand.nextInt(10) < 2)
             {
-              GameSurface localGameSurface8 = this$0;
+              GameSurface localGameSurface8 = GameSurface.this;
               localGameSurface8.bonusDir = (-1 * localGameSurface8.bonusDir);
             }
-            if (this$0.bonus.getLeft() > this$0.mCanvasWidth - this$0.bonus.getWidth())
-              this$0.bonusAngle = 216;
-            if (this$0.bonus.getLeft() < 0)
-              this$0.bonusAngle = 144;
+            if (GameSurface.this.bonus.getLeft() > GameSurface.this.mCanvasWidth - GameSurface.this.bonus.getWidth())
+              GameSurface.this.bonusAngle = 216;
+            if (GameSurface.this.bonus.getLeft() < 0)
+              GameSurface.this.bonusAngle = 144;
             if (GameSurface.rand.nextInt(10) < 2)
             {
-              GameSurface localGameSurface7 = this$0;
+              GameSurface localGameSurface7 = GameSurface.this;
               localGameSurface7.bonusDir = (-1 * localGameSurface7.bonusDir);
             }
-            if (this$0.bonusAngle > 300)
-              this$0.bonusAngle = 144;
-            if (this$0.bonusAngle < 60)
-              this$0.bonusAngle = 216;
-            GameSurface localGameSurface5 = this$0;
-            localGameSurface5.bonusAngle = (localGameSurface5.bonusAngle + 5 * this$0.bonusDir);
-            if (!(this$0.paused))
-              this$0.bonus.setPosition((int)Math.round(this$0.bonus.getLeft() - 5.0D * Math.sin(Math.toRadians(180 + this$0.bonusAngle))), this$0.bonus.getTop() + (int)(3.0F * this$0.scale * (1F + this$0.acceleration() / 100.0F)));
-            this$0.bonus.draw(paramCanvas, 0);
-            if (this$0.bonus.getTop() <= this$0.mCanvasHeight)
+            if (GameSurface.this.bonusAngle > 300)
+              GameSurface.this.bonusAngle = 144;
+            if (GameSurface.this.bonusAngle < 60)
+              GameSurface.this.bonusAngle = 216;
+            GameSurface localGameSurface5 = GameSurface.this;
+            localGameSurface5.bonusAngle = (localGameSurface5.bonusAngle + 5 * GameSurface.this.bonusDir);
+            if (!(GameSurface.this.paused))
+              GameSurface.this.bonus.setPosition((int)Math.round(GameSurface.this.bonus.getLeft() - 5.0D * Math.sin(Math.toRadians(180 + GameSurface.this.bonusAngle))), GameSurface.this.bonus.getTop() + (int)(3.0F * GameSurface.this.scale * (1F + GameSurface.this.acceleration() / 100.0F)));
+            GameSurface.this.bonus.draw(paramCanvas, 0);
+            if (GameSurface.this.bonus.getTop() <= GameSurface.this.mCanvasHeight)
               break label457;
           }
-          while (!(this$0.settings.getBoolean("Bonus", false)));
-          GameSurface localGameSurface6 = this$0;
+          while (!(GameSurface.this.settings.getBoolean("Bonus", false)));
+          GameSurface localGameSurface6 = GameSurface.this;
           localGameSurface6.shipSmashedCounter = (1 + localGameSurface6.shipSmashedCounter);
-          this$0.editor.putBoolean("Bonus", false);
-          this$0.editor.commit();
-          this$0.isBonus = false;
-          if ((this$0.shipSmashedCounter >= this$0.shipCounter) && (!(this$0.isAlphaing)))
+          GameSurface.this.editor.putBoolean("Bonus", false);
+          GameSurface.this.editor.commit();
+          GameSurface.this.isBonus = false;
+          if ((GameSurface.this.shipSmashedCounter >= GameSurface.this.shipCounter) && (!(GameSurface.this.isAlphaing)))
           {
-            label457: this$0.isAlphaing = true;
+            label457: GameSurface.this.isAlphaing = true;
             Log.i("", "First step");
             GameActivity.surfaceAction = 2;
-            SharedPreferences.Editor localEditor = this$0.mContext.getSharedPreferences("AppData", 0).edit();
+            SharedPreferences.Editor localEditor = GameSurface.this.mContext.getSharedPreferences("AppData", 0).edit();
             localEditor.putBoolean("ShouldContinue", false);
             localEditor.commit();
           }
-          if (this$0.isAlphaing)
+          if (GameSurface.this.isAlphaing)
             break label1617;
-          this$0.updatePositions();
+          GameSurface.this.updatePositions();
         }
         int i = 0;
         while (true)
         {
-          while (i >= this$0.numberOfshipsWithType[b1])
+          while (i >= GameSurface.this.numberOfshipsWithType[b1])
             ++b1;
-          if ((this$0.smashed[b1][i] != 0) && (!(this$0.isAlphaing)))
-            this$0.ships[b1][i].draw(paramCanvas, this$0.shipAngle[b1][i]);
+          if ((GameSurface.this.smashed[b1][i] != 0) && (!(GameSurface.this.isAlphaing)))
+            GameSurface.this.ships[b1][i].draw(paramCanvas, GameSurface.this.shipAngle[b1][i]);
           ++i;
         }
         label643: j = 0;
-        if (j < this$0.numberOfshipsWithType[b2])
+        if (j < GameSurface.this.numberOfshipsWithType[b2])
           break;
         ++b2;
       }
-      if ((this$0.smashed[b2][j] == 0) && (this$0.inScreen[b2][j] != 0))
+      if ((GameSurface.this.smashed[b2][j] == false) && (GameSurface.this.inScreen[b2][j] != false))
       {
-        if (!(this$0.paused))
+        if (!(GameSurface.this.paused))
         {
           if (b2 == 7)
             break label1085;
-          this$0.ships[b2][j].setBitmap(GameSurface.access$4()[b2][(this$0.counter / 4 % 4)]);
+          GameSurface.this.ships[b2][j].setBitmap(GameSurface.access$4()[b2][(GameSurface.this.counter / 4 % 4)]);
         }
         if ((b2 == 4) || (b2 == 6))
           break label1178;
-        this$0.ships[b2][j].draw(paramCanvas, this$0.shipAngle[b2][j]);
-        if ((this$0.ships[b2][j].getTop() > this$0.mCanvasHeight) && (this$0.mCanvasHeight != 0))
+        GameSurface.this.ships[b2][j].draw(paramCanvas, GameSurface.this.shipAngle[b2][j]);
+        if ((GameSurface.this.ships[b2][j].getTop() > GameSurface.this.mCanvasHeight) && (GameSurface.this.mCanvasHeight != 0))
         {
-          int k = this$0.settings.getInt("Lifes", 0);
-          if ((this$0.protection) && (((!(this$0.protection)) || (k < 2))))
+          int k = GameSurface.this.settings.getInt("Lifes", 0);
+          if ((GameSurface.this.protection) && (((!(GameSurface.this.protection)) || (k < 2))))
             break label1329;
-          if ((this$0.gameMode != 3) || ((this$0.gameMode == 3) && (k > 2)))
+          if ((GameSurface.this.gameMode != 3) || ((GameSurface.this.gameMode == 3) && (k > 2)))
           {
             if (GameActivity.lifeFlag != -1)
               break label1317;
-            this$0.setLifes(-2);
-            this$0.editor.putInt("Lifes", k - 1);
-            this$0.editor.commit();
+            GameSurface.this.setLifes(-2);
+            GameSurface.this.editor.putInt("Lifes", k - 1);
+            GameSurface.this.editor.commit();
           }
-          GameSurface localGameSurface2 = this$0;
+          GameSurface localGameSurface2 = GameSurface.this;
           localGameSurface2.shipSmashedCounter = (1 + localGameSurface2.shipSmashedCounter);
-          this$0.smashed[b2][j] = 1;
-          this$0.inScreen[b2][j] = 0;
-          this$0.mp = MediaPlayer.create(this$0.mContext, 2131034126);
-          this$0.mp.setAudioStreamType(3);
-          if (this$0.isSound)
-            this$0.mp.start();
-          this$0.mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener(this)
+          GameSurface.this.smashed[b2][j] = 1;
+          GameSurface.this.inScreen[b2][j] = 0;
+          GameSurface.this.mp = MediaPlayer.create(GameSurface.this.mContext, 2131034126);
+          GameSurface.this.mp.setAudioStreamType(3);
+          if (GameSurface.this.isSound)
+            GameSurface.this.mp.start();
+          GameSurface.this.mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
           {
-            public void onCompletion()
-            {
-              if (paramMediaPlayer != null)
+              public void onCompletion(MediaPlayer paramMediaPlayer)
               {
-                if (paramMediaPlayer.isPlaying())
-                  paramMediaPlayer.stop();
-                paramMediaPlayer.release();
+                if (paramMediaPlayer != null)
+                {
+                  if (paramMediaPlayer.isPlaying())
+                    paramMediaPlayer.stop();
+                  paramMediaPlayer.release();
+                }
               }
-            }
-          });
+            });
           if (k <= 1)
-            this$0.doEndGame();
+            GameSurface.this.doEndGame();
         }
       }
       while (true)
@@ -944,64 +948,64 @@ public abstract class GameSurface
                   {
                     while (true)
                       ++j;
-                    label1085: if (this$0.shipLife[b2][j] != 2)
+                    label1085: if (GameSurface.this.shipLife[b2][j] != 2)
                       break;
-                    this$0.ships[b2][j].setBitmap(GameSurface.access$4()[b2][(this$0.counter / 4 % 4)]);
+                    GameSurface.this.ships[b2][j].setBitmap(GameSurface.access$4()[b2][(GameSurface.this.counter / 4 % 4)]);
                   }
-                  this$0.ships[b2][j].setBitmap(GameSurface.access$4()[(b2 + 1)][(this$0.counter / 4 % 4)]);
+                  GameSurface.this.ships[b2][j].setBitmap(GameSurface.access$4()[(b2 + 1)][(GameSurface.this.counter / 4 % 4)]);
                 }
-                label1178: if (this$0.bigshipAlphaControl != 0)
+                label1178: if (GameSurface.this.bigshipAlphaControl != 0)
                   break;
-                this$0.ships[b2][j].draw(paramCanvas, this$0.shipAngle[b2][j]);
+                GameSurface.this.ships[b2][j].draw(paramCanvas, GameSurface.this.shipAngle[b2][j]);
               }
               p = new Paint();
               p.setAlpha(128);
-              this$0.ships[b2][j].draw(paramCanvas, this$0.shipAngle[b2][j], p);
+              GameSurface.this.ships[b2][j].draw(paramCanvas, GameSurface.this.shipAngle[b2][j], p);
               GameSurface localGameSurface1 = this$0;
               localGameSurface1.bigshipAlphaControl = (1 + localGameSurface1.bigshipAlphaControl);
             }
-            while (this$0.bigshipAlphaControl <= 6);
-            this$0.bigshipAlphaControl = 0;
+            while (GameSurface.this.bigshipAlphaControl <= 6);
+            GameSurface.this.bigshipAlphaControl = 0;
           }
-          label1317: this$0.setLifes(-1);
+          label1317: GameSurface.this.setLifes(-1);
         }
-        label1329: this$0.protection = false;
-        this$0.editor.putBoolean("Prot", false);
-        this$0.editor.commit();
+        label1329: GameSurface.this.protection = false;
+        GameSurface.this.editor.putBoolean("Prot", false);
+        GameSurface.this.editor.commit();
         GameSurface localGameSurface3 = this$0;
         localGameSurface3.shipSmashedCounter = (1 + localGameSurface3.shipSmashedCounter);
-        this$0.smashed[b2][j] = 1;
-        this$0.inScreen[b2][j] = 0;
-        this$0.mp = MediaPlayer.create(this$0.mContext, 2131034126);
-        this$0.mp.setAudioStreamType(3);
-        if (this$0.isSound)
-          this$0.mp.start();
-        this$0.mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener(this)
+        GameSurface.this.smashed[b2][j] = 1;
+        GameSurface.this.inScreen[b2][j] = 0;
+        GameSurface.this.mp = MediaPlayer.create(GameSurface.this.mContext, 2131034126);
+        GameSurface.this.mp.setAudioStreamType(3);
+        if (GameSurface.this.isSound)
+          GameSurface.this.mp.start();
+        GameSurface.this.mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
         {
-          public void onCompletion()
-          {
-            if (paramMediaPlayer != null)
+            public void onCompletion(MediaPlayer paramMediaPlayer)
             {
-              if (paramMediaPlayer.isPlaying())
-                paramMediaPlayer.stop();
-              paramMediaPlayer.release();
+              if (paramMediaPlayer != null)
+              {
+                if (paramMediaPlayer.isPlaying())
+                  paramMediaPlayer.stop();
+                paramMediaPlayer.release();
+              }
             }
-          }
-        });
+          });
       }
-      if ((this$0.beeInScreen[l] != 0) && (!(this$0.isAlphaing)))
+      if ((GameSurface.this.beeInScreen[l] != 0) && (!(GameSurface.this.isAlphaing)))
       {
-        if (!(this$0.paused))
-          label1484: this$0.bees[l].setBitmap(GameSurface.access$6()[(this$0.counter / 4 % 4)]);
-        this$0.bees[l].draw(paramCanvas, this$0.beeAngle[l]);
+        if (!(GameSurface.this.paused))
+          label1484: GameSurface.this.bees[l].setBitmap(GameSurface.access$6()[(GameSurface.this.counter / 4 % 4)]);
+        GameSurface.this.bees[l].draw(paramCanvas, GameSurface.this.beeAngle[l]);
       }
       while (true)
       {
         do
           while (true)
             ++l;
-        while (this$0.bees[l].bitmap() == GameSurface.access$6()[4]);
-        this$0.bees[l].setBitmap(GameSurface.access$6()[0]);
+        while (GameSurface.this.bees[l].bitmap() == GameSurface.access$6()[4]);
+        GameSurface.this.bees[l].setBitmap(GameSurface.access$6()[0]);
       }
       label1617: p = new Paint();
       Paint localPaint = p;
@@ -1015,42 +1019,42 @@ public abstract class GameSurface
         int i3 = 0;
         while (true)
         {
-          if (i3 >= this$0.numberOfBees);
-          this$0.bees[i3].draw(paramCanvas, this$0.beeAngle[i3], p);
+          if (i3 >= GameSurface.this.numberOfBees);
+          GameSurface.this.bees[i3].draw(paramCanvas, GameSurface.this.beeAngle[i3], p);
           ++i3;
         }
       }
       int i2 = 0;
       while (true)
       {
-        while (i2 >= this$0.numberOfshipsWithType[b3])
+        while (i2 >= GameSurface.this.numberOfshipsWithType[b3])
           ++b3;
-        if (this$0.smashed[b3][i2] != 0)
-          this$0.ships[b3][i2].draw(paramCanvas, this$0.shipAngle[b3][i2], p);
+        if (GameSurface.this.smashed[b3][i2] != 0)
+          GameSurface.this.ships[b3][i2].draw(paramCanvas, GameSurface.this.shipAngle[b3][i2], p);
         ++i2;
       }
     }
 
     public void doPause()
     {
-      if (!(this$0.paused))
-        GameSurface.access$8(this$0, new Date().getTime());
-      this$0.paused = true;
+      if (!(GameSurface.this.paused))
+        GameSurface.access$8(GameSurface.this, new Date().getTime());
+      GameSurface.this.paused = true;
     }
 
     public void doResume()
     {
-      if ((this$0.paused) && (GameSurface.access$9(this$0) > 0L))
+      if ((GameSurface.this.paused) && (GameSurface.access$9(this$0) > 0L))
       {
-        long l1 = this$0.settings.getLong("PlayTimeDiscount", 0L);
-        SharedPreferences.Editor localEditor = this$0.settings.edit();
+        long l1 = GameSurface.this.settings.getLong("PlayTimeDiscount", 0L);
+        SharedPreferences.Editor localEditor = GameSurface.this.settings.edit();
         long l2 = new Date().getTime() - GameSurface.access$9(this$0);
         if (l2 > 0L)
           l1 = l1 + l2;
         localEditor.putLong("PlayTimeDiscount", l1);
         localEditor.commit();
       }
-      this$0.paused = false;
+      GameSurface.this.paused = false;
     }
 
     public void doStop()
@@ -1065,18 +1069,18 @@ public abstract class GameSurface
       int j;
       int k;
       byte b2;
-      if (this$0.paused)
+      if (GameSurface.this.paused)
       {
         b2 = 0;
         return b2;
       }
-      if (this$0.acceleration() < 26.0D)
+      if (GameSurface.this.acceleration() < 26.0D)
       {
         f = 26.0F;
         b1 = 0;
         if (b1 < 9)
           break label320;
-        j = (int)(13.0F * this$0.scale);
+        j = (int)(13.0F * GameSurface.this.scale);
         k = 0;
       }
       while (true)
@@ -1085,25 +1089,25 @@ public abstract class GameSurface
         {
           while (true)
           {
-            if (k < this$0.numberOfBees)
+            if (k < GameSurface.this.numberOfBees)
               break label648;
-            if ((this$0.isBonus) && (this$0.bonus != null) && (!(this$0.isKillingBee)) && ((int)paramMotionEvent.getX() > this$0.bonus.getLeft() - (int)(0.23999999463558197F * this$0.bonus.getWidth() * this$0.scale)) && ((int)paramMotionEvent.getX() < this$0.bonus.getLeft() + this$0.bonus.getWidth() + (int)(0.23999999463558197F * this$0.bonus.getWidth() * this$0.scale)) && ((int)paramMotionEvent.getY() > this$0.bonus.getTop() - (int)(0.23999999463558197F * this$0.bonus.getHeight() * this$0.scale)) && ((int)paramMotionEvent.getY() < this$0.bonus.getTop() + this$0.bonus.getHeight() + (int)(0.23999999463558197F * this$0.bonus.getHeight() * this$0.scale)))
-              this$0.bonusWasSmashed();
+            if ((GameSurface.this.isBonus) && (GameSurface.this.bonus != null) && (!(GameSurface.this.isKillingBee)) && ((int)paramMotionEvent.getX() > GameSurface.this.bonus.getLeft() - (int)(0.23999999463558197F * GameSurface.this.bonus.getWidth() * GameSurface.this.scale)) && ((int)paramMotionEvent.getX() < GameSurface.this.bonus.getLeft() + GameSurface.this.bonus.getWidth() + (int)(0.23999999463558197F * GameSurface.this.bonus.getWidth() * GameSurface.this.scale)) && ((int)paramMotionEvent.getY() > GameSurface.this.bonus.getTop() - (int)(0.23999999463558197F * GameSurface.this.bonus.getHeight() * GameSurface.this.scale)) && ((int)paramMotionEvent.getY() < GameSurface.this.bonus.getTop() + GameSurface.this.bonus.getHeight() + (int)(0.23999999463558197F * GameSurface.this.bonus.getHeight() * GameSurface.this.scale)))
+              GameSurface.this.bonusWasSmashed();
             b2 = 1;
           }
-          f = this$0.acceleration();
+          f = GameSurface.this.acceleration();
         }
         label320: int i = 0;
         while (true)
         {
-          while (i >= this$0.numberOfshipsWithType[b1])
+          while (i >= GameSurface.this.numberOfshipsWithType[b1])
             ++b1;
-          if ((!(this$0.isKillingBee)) && (this$0.smashed[b1][i] == 0) && ((int)paramMotionEvent.getX() > this$0.ships[b1][i].getLeft() - (int)(0.23999999463558197F * this$0.ships[b1][i].getWidth()) - (int)(0.69999998807907104F * f)) && ((int)paramMotionEvent.getX() < this$0.ships[b1][i].getLeft() + this$0.ships[b1][i].getWidth() + (int)(0.23999999463558197F * this$0.ships[b1][i].getWidth()) + (int)(0.69999998807907104F * f)) && ((int)paramMotionEvent.getY() > this$0.ships[b1][i].getTop() - (int)(0.23999999463558197F * this$0.ships[b1][i].getHeight()) - (int)(0.69999998807907104F * f)) && ((int)paramMotionEvent.getY() < this$0.ships[b1][i].getTop() + this$0.ships[b1][i].getHeight() + (int)(0.23999999463558197F * this$0.ships[b1][i].getHeight()) + (int)(0.69999998807907104F * f)) && ((((b1 != 4) && (b1 != 6) && (b1 != 7)) || (paramMotionEvent.getAction() == 0))))
-            this$0.sheWasSmashed(b1, i);
+          if ((!(GameSurface.this.isKillingBee)) && (GameSurface.this.smashed[b1][i] == 0) && ((int)paramMotionEvent.getX() > GameSurface.this.ships[b1][i].getLeft() - (int)(0.23999999463558197F * GameSurface.this.ships[b1][i].getWidth()) - (int)(0.69999998807907104F * f)) && ((int)paramMotionEvent.getX() < GameSurface.this.ships[b1][i].getLeft() + GameSurface.this.ships[b1][i].getWidth() + (int)(0.23999999463558197F * GameSurface.this.ships[b1][i].getWidth()) + (int)(0.69999998807907104F * f)) && ((int)paramMotionEvent.getY() > GameSurface.this.ships[b1][i].getTop() - (int)(0.23999999463558197F * GameSurface.this.ships[b1][i].getHeight()) - (int)(0.69999998807907104F * f)) && ((int)paramMotionEvent.getY() < GameSurface.this.ships[b1][i].getTop() + GameSurface.this.ships[b1][i].getHeight() + (int)(0.23999999463558197F * GameSurface.this.ships[b1][i].getHeight()) + (int)(0.69999998807907104F * f)) && ((((b1 != 4) && (b1 != 6) && (b1 != 7)) || (paramMotionEvent.getAction() == 0))))
+            GameSurface.this.sheWasSmashed(b1, i);
           ++i;
         }
-        if ((!(this$0.isKillingBee)) && (!(this$0.isAlphaing)) && ((int)paramMotionEvent.getX() > j + this$0.bees[k].getLeft()) && ((int)paramMotionEvent.getX() < this$0.bees[k].getLeft() + this$0.bees[k].getWidth() - j) && ((int)paramMotionEvent.getY() > j + this$0.bees[k].getTop()) && ((int)paramMotionEvent.getY() < this$0.bees[k].getTop() + this$0.bees[k].getHeight() - j))
-          label648: this$0.beeWasSmashed(k);
+        if ((!(GameSurface.this.isKillingBee)) && (!(GameSurface.this.isAlphaing)) && ((int)paramMotionEvent.getX() > j + GameSurface.this.bees[k].getLeft()) && ((int)paramMotionEvent.getX() < GameSurface.this.bees[k].getLeft() + GameSurface.this.bees[k].getWidth() - j) && ((int)paramMotionEvent.getY() > j + GameSurface.this.bees[k].getTop()) && ((int)paramMotionEvent.getY() < GameSurface.this.bees[k].getTop() + GameSurface.this.bees[k].getHeight() - j))
+          label648: GameSurface.this.beeWasSmashed(k);
         ++k;
       }
     }
@@ -1115,18 +1119,18 @@ public abstract class GameSurface
 
     public void resetVars()
     {
-      this$0.numberOfshipsWithType = new int[7];
-      this$0.numberOfBees = 0;
-      this$0.numberOfObjects = 0;
+    	GameSurface.this.numberOfshipsWithType = new int[7];
+    	GameSurface.this.numberOfBees = 0;
+    	GameSurface.this.numberOfObjects = 0;
     }
 
     public void run()
     {
       Canvas localCanvas2;
       SurfaceHolder localSurfaceHolder2;
-      if (CONF == 0)
+      if (CONF == null)
         return;
-      if ((this$0.paused) && (this$0.isKillingBee));
+      if ((GameSurface.this.paused) && (GameSurface.this.isKillingBee));
       try
       {
         localCanvas2 = mSurfaceHolder.lockCanvas();
@@ -1137,12 +1141,12 @@ public abstract class GameSurface
         long l4;
         try
         {
-          GameSurface localGameSurface3 = this$0;
+          GameSurface localGameSurface3 = GameSurface.this;
           localGameSurface3.counter = (1 + localGameSurface3.counter);
           long l2 = SystemClock.uptimeMillis();
           doDraw(localCanvas2);
-          this$0.killingBee(this$0.killingBeeIndex);
-          this$0.killingBeeDraw(localCanvas2);
+          GameSurface.this.killingBee(GameSurface.this.killingBeeIndex);
+          GameSurface.this.killingBeeDraw(localCanvas2);
           long l3 = SystemClock.uptimeMillis();
           l4 = l3 - l2;
           if (l4 > 16);
@@ -1155,11 +1159,11 @@ public abstract class GameSurface
             do
             {
               Thread.sleep(l5);
-              monitorexit;
+              
               if (localCanvas2 != null)
                 mSurfaceHolder.unlockCanvasAndPost(localCanvas2);
             }
-            while ((this$0.paused) && (!(refreshScreenFlag.booleanValue())));
+            while ((GameSurface.this.paused) && (!(refreshScreenFlag.booleanValue())));
             refreshScreenFlag = Boolean.valueOf(false);
           }
           catch (InterruptedException localInterruptedException)
@@ -1177,21 +1181,21 @@ public abstract class GameSurface
               {
                 do
                 {
-                  GameSurface localGameSurface1 = this$0;
+                  GameSurface localGameSurface1 = GameSurface.this.;
                   localGameSurface1.counter = (1 + localGameSurface1.counter);
                   long l1 = SystemClock.uptimeMillis();
                   doDraw(localCanvas1);
-                  if (this$0.isCircleing)
+                  if (GameSurface.this.isCircleing)
                   {
-                    this$0.killingBeeDraw(localCanvas1);
-                    GameSurface localGameSurface2 = this$0;
+                    GameSurface.this.killingBeeDraw(localCanvas1);
+                    GameSurface localGameSurface2 = GameSurface.this.;
                     int i = localGameSurface2.killingBeeCounter;
                     localGameSurface2.killingBeeCounter = (i + 1);
                     if (i > 40)
-                      this$0.isCircleing = false;
+                      GameSurface.this.isCircleing = false;
                   }
                   if (SystemClock.uptimeMillis() - l1 > 20);
-                  monitorexit;
+                  
                 }
                 while (localCanvas1 == null);
                 mSurfaceHolder.unlockCanvasAndPost(localCanvas1);
@@ -1200,9 +1204,9 @@ public abstract class GameSurface
               {
                 while (true)
                 {
-                  monitorexit;
+                  
                   throw localObject2;
-                  localObject1 = finally;
+                  
                   if (0 != 0)
                     mSurfaceHolder.unlockCanvasAndPost(null);
                   throw localObject1;
@@ -1215,10 +1219,7 @@ public abstract class GameSurface
       }
     }
 
-    // ERROR //
-    //public void setSurfaceSize(, int paramInt2)
-    //{
-    //}
+    
 
     public void simpleDraw()
     {
@@ -1236,9 +1237,7 @@ public abstract class GameSurface
         }
         finally
         {
-          monitorexit;
-          throw localObject2;
-          localObject1 = finally;
+          
           if (0 != 0)
             mSurfaceHolder.unlockCanvasAndPost(null);
         }

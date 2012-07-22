@@ -11,8 +11,8 @@ public class Level19 extends GameSurface
     int k;
     byte b4;
     int i3;
-    paceY = (2 + Constants.initial_speed_increment);
-    paceX = 3;
+    tempY = (2 + Constants.initial_speed_increment);
+    tempX = 3;
     objectPadding = 280;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 3;
@@ -151,7 +151,7 @@ public class Level19 extends GameSurface
       {
         if (j >= numberOfBees);
         beeAngle[j] = (int)Math.round(beeAngle[j] + 2.6000000000000001D * beeDirection[j]);
-        bees[j].setPosition(bees[j].getLeft() - (int)(Math.sin(Math.toRadians(180 + beeAngle[j])) * paceX), 2 + bees[j].getTop() - (int)(Math.cos(Math.toRadians(beeAngle[j])) * paceY));
+        bees[j].setPosition(bees[j].getLeft() - (int)(Math.sin(Math.toRadians(180 + beeAngle[j])) * tempX), 2 + bees[j].getTop() - (int)(Math.cos(Math.toRadians(beeAngle[j])) * tempY));
         ++j;
       }
     }
@@ -161,7 +161,7 @@ public class Level19 extends GameSurface
       while (i >= numberOfAntsWithType[b])
         ++b;
       if (smashed[b][i] == 0)
-        ants[b][i].setPosition(ants[b][i].getLeft(), ants[b][i].getTop() + (int)(paceY * scale * (1F + f)));
+        ants[b][i].setPosition(ants[b][i].getLeft(), ants[b][i].getTop() + (int)(tempY * scale * (1F + f)));
       ++i;
     }
   }

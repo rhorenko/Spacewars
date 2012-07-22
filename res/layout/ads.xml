@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/ads" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:myapp="http://schemas.android.com/apk/res/com.bestcoolfungames.antsmasher">
-    <FrameLayout android:id="@id/mmadFrameLayout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="53.0dip" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myapp="http://schemas.android.com/apk/res/com.bestcoolfungames.antsmasher"
+    android:id="@id/ads"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <FrameLayout
+        android:id="@id/mmadFrameLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="53.0dip" />
+
 </RelativeLayout>

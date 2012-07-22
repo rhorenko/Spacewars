@@ -14,8 +14,8 @@ public class Level10 extends GameSurface
     byte b3;
     byte b4;
     int i2;
-    paceY = (3 + Constants.initial_speed_increment);
-    paceX = 4;
+    tempY = (3 + Constants.initial_speed_increment);
+    tempX = 4;
     objectPadding = 150;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 2;
@@ -136,7 +136,7 @@ public class Level10 extends GameSurface
       {
         if (j >= numberOfBees);
         beeAngle[j] = (int)Math.round(beeAngle[j] + 2.6000000000000001D * beeDirection[j]);
-        bees[j].setPosition(bees[j].getLeft() - (int)(Math.sin(Math.toRadians(180 + beeAngle[j])) * paceX), 2 + bees[j].getTop() - (int)(Math.cos(Math.toRadians(beeAngle[j])) * paceY));
+        bees[j].setPosition(bees[j].getLeft() - (int)(Math.sin(Math.toRadians(180 + beeAngle[j])) * tempX), 2 + bees[j].getTop() - (int)(Math.cos(Math.toRadians(beeAngle[j])) * tempY));
         ++j;
       }
     }
@@ -157,7 +157,7 @@ public class Level10 extends GameSurface
           antAngle[b][i] = 250;
         if (ants[b][i].getLeft() < 0)
           antAngle[b][i] = 110;
-        ants[b][i].setPosition((int)Math.round(ants[b][i].getLeft() + paceX * Math.sin(Math.toRadians(antAngle[b][i]))), (int)Math.round(ants[b][i].getTop() - f * paceY * Math.cos(Math.toRadians(antAngle[b][i]))));
+        ants[b][i].setPosition((int)Math.round(ants[b][i].getLeft() + tempX * Math.sin(Math.toRadians(antAngle[b][i]))), (int)Math.round(ants[b][i].getTop() - f * tempY * Math.cos(Math.toRadians(antAngle[b][i]))));
       }
       ++i;
     }

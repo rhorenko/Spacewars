@@ -18,8 +18,8 @@ public class Level14 extends GameSurface
     byte b2;
     byte b3;
     int i = (int)(mContext.getResources().getDisplayMetrics().widthPixels * scale);
-    paceY = (4 + Constants.initial_speed_increment);
-    paceX = 2;
+    tempY = (4 + Constants.initial_speed_increment);
+    tempX = 2;
     objectPadding = 230;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 3;
@@ -143,8 +143,8 @@ public class Level14 extends GameSurface
             antDirection[b1][i] = -1;
           if (ants[b1][i].getLeft() < 0)
             antDirection[b1][i] = 1;
-          int j = paceX;
-          int k = paceY;
+          int j = tempX;
+          int k = tempY;
           if (Math.abs(antAcc[b1][i]) > 3)
           {
             int[] arrayOfInt2 = antAccDir[b1];

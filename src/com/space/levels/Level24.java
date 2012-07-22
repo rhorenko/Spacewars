@@ -13,8 +13,8 @@ public class Level24 extends GameSurface
     int j;
     byte b2;
     byte b3;
-    paceY = (2 + Constants.initial_speed_increment);
-    paceX = 2;
+    tempY = (2 + Constants.initial_speed_increment);
+    tempX = 2;
     objectPadding = 120;
     int[] arrayOfInt1 = new int[9];
     arrayOfInt1[0] = 2;
@@ -113,7 +113,7 @@ public class Level24 extends GameSurface
         if ((ants[b][i].getTop() > antRunningStart[b][i]) && (ants[b][i].getTop() < 200 + antRunningStart[b][i]))
           j = 6;
         float f = Math.min(10.0F, acceleration() / 24.0F);
-        ants[b][i].setPosition(ants[b][i].getLeft(), Math.round(f + j + ants[b][i].getTop() + paceY));
+        ants[b][i].setPosition(ants[b][i].getLeft(), Math.round(f + j + ants[b][i].getTop() + tempY));
       }
       ++i;
     }
