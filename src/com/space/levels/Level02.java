@@ -38,17 +38,19 @@ public class Level02 extends GameSurface
     beeDirection = new int[5];
     numberOfBees = 1;
     byte b1 = 0;
+    b4 = 0;j = 0;
     if (b1 >= 5)
     {
-      j = 0;
+      
       if (j < numberOfBees)return;
-      b4 = 0;
+      
     }
     while (true)
     {
       int i;
-      byte b2;
-      byte b3;
+      byte b2=0;
+      byte b3=0;
+      
       while (true)
       {
         if (b4 < 5) return;
@@ -72,8 +74,10 @@ public class Level02 extends GameSurface
         {
           arrayOfInt5[i] = b2;
           ++i;
+          break;//delete break;
         }
         b2 = 1;
+        break;//delete break;
       }
       beeAngle[j] = 180;
       int[] arrayOfInt6 = beeDirection;
@@ -125,10 +129,7 @@ public class Level02 extends GameSurface
   public void updatePositions()
   {
     int i;
-    if (passed);
-    do
-      return;
-    while (paused);
+   
     float f = acceleration() / 36.0F;
     byte b = 0;
     while (true)

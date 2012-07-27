@@ -26,7 +26,7 @@ import android.widget.TextView;
 import com.space.wars.Constants;
 
 public class InitialView extends Activity
-  implements AdListener, MetaTagListener
+  
 {
   static final int ADS_MAGIC_CONSTANT = 150;
   public static final String MM_APID = "58057";
@@ -607,7 +607,7 @@ public class InitialView extends Activity
         localMetaTags.execute(arrayOfMetaTagListener);
         ++b;
       }
-      label433: setupAdMobAds(this, this);
+      
     }
   }
 
@@ -618,52 +618,7 @@ public class InitialView extends Activity
     Process.killProcess(Process.myPid());
   }
 
-  public void onDismissScreen(Ad paramAd)
-  {
-  }
-
-  public void onFailedToReceiveAd(Ad paramAd, AdRequest.ErrorCode paramErrorCode)
-  {
-    byte b = 0;
-    while (true)
-    {
-      if (b >= 5);
-      while (true)
-      {
-        return;
-        if (paramAd != ad[b])
-          break;
-        adVisibility[b] = false;
-      }
-      ++b;
-    }
-  }
-
-  public void onLeaveApplication(Ad paramAd)
-  {
-  }
-
-  public void onPresentScreen(Ad paramAd)
-  {
-  }
-
-  public void onReceiveAd(Ad paramAd)
-  {
-    byte b = 0;
-    while (true)
-    {
-      if (b >= 5);
-      while (true)
-      {
-        return;
-        if (paramAd != ad[b])
-          break;
-        adVisibility[b] = true;
-      }
-      ++b;
-    }
-  }
-
+  
   public void onResume()
   {
     super.onResume();

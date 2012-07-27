@@ -164,15 +164,16 @@ public class GameActivity extends Activity
           while (true)
           {
             int j = i;
-            Util.DebugLog("level - " + String.valueOf(j));
-            return j;
+            
+            
             if (b == 0)
             {
               if (levelChosen[k] != false)
-                break label149;
+                return i;
               i = k;
               levelChosen[k] = true;
               b = 1;
+              return j;
             }
             label149: 
             do

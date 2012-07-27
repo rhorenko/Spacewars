@@ -1,30 +1,261 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/storeLayout" android:background="@drawable/str_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:id="@id/storeInLayout" android:layout_width="316.0dip" android:layout_height="485.0dip" android:layout_centerHorizontal="true">
-        <Button android:id="@id/deluxePack" android:background="@drawable/deluxe_pack" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
-        <RelativeLayout android:id="@id/storeBox1" android:background="@drawable/str_modes" android:layout_width="153.0dip" android:layout_height="157.0dip" android:layout_alignRight="@id/storeBox2" android:layout_alignParentTop="true">
-            <TextView android:textSize="22.0sp" android:textColor="#ffffffff" android:gravity="center_vertical" android:id="@id/gmodesText" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:text="@string/game_modes" android:shadowColor="#ff000000" android:shadowRadius="8.0" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
-            <Button android:id="@id/kidsMode" android:background="@drawable/kids_shop" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
-            <TextView android:textSize="22.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/kidsText" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:text="@string/kids" android:shadowColor="#ff000000" android:shadowRadius="8.0" android:layout_alignLeft="@id/kidsMode" android:layout_alignTop="@id/kidsMode" />
-            <Button android:id="@id/babyMode" android:background="@drawable/baby_mode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
-            <TextView android:textSize="28.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/babyText" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:text="@string/baby" android:shadowColor="#ff000000" android:shadowRadius="8.0" android:layout_alignLeft="@id/babyMode" android:layout_alignTop="@id/babyMode" />
-            <Button android:id="@id/funMode" android:background="@drawable/fun_shop" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
-            <TextView android:textSize="30.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/funText" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:text="@string/fun" android:shadowColor="#ff000000" android:shadowRadius="8.0" android:layout_alignLeft="@id/funMode" android:layout_alignTop="@id/funMode" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/storeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/str_bg" >
+
+    <RelativeLayout
+        android:id="@id/storeInLayout"
+        android:layout_width="316.0dip"
+        android:layout_height="485.0dip"
+        android:layout_centerHorizontal="true" >
+
+        <Button
+            android:id="@id/deluxePack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/deluxe_pack" />
+
+        <RelativeLayout
+            android:id="@id/storeBox1"
+            android:layout_width="153.0dip"
+            android:layout_height="157.0dip"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@id/storeBox2"
+            android:background="@drawable/str_modes" >
+
+            <TextView
+                android:id="@id/gmodesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="0.0dip"
+                android:layout_marginTop="0.0dip"
+                android:background="#00000000"
+                android:gravity="center_vertical"
+                android:shadowColor="#ff000000"
+                android:shadowRadius="8.0"
+                android:text="@string/game_modes"
+                android:textColor="#ffffffff"
+                android:textSize="22.0sp" />
+
+            <Button
+                android:id="@id/kidsMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/kids_shop" />
+
+            <TextView
+                android:id="@id/kidsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/kidsMode"
+                android:layout_alignTop="@id/kidsMode"
+                android:layout_marginLeft="0.0dip"
+                android:layout_marginTop="0.0dip"
+                android:background="#00000000"
+                android:gravity="center"
+                android:shadowColor="#ff000000"
+                android:shadowRadius="8.0"
+                android:text="@string/kids"
+                android:textColor="#ffffffff"
+                android:textSize="22.0sp" />
+
+            <Button
+                android:id="@id/babyMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/baby_mode" />
+
+            <TextView
+                android:id="@id/babyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/babyMode"
+                android:layout_alignTop="@id/babyMode"
+                android:layout_marginLeft="0.0dip"
+                android:layout_marginTop="0.0dip"
+                android:background="#00000000"
+                android:gravity="center"
+                android:shadowColor="#ff000000"
+                android:shadowRadius="8.0"
+                android:text="@string/baby"
+                android:textColor="#ffffffff"
+                android:textSize="28.0sp" />
+
+            <Button
+                android:id="@id/funMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/fun_shop" />
+
+            <TextView
+                android:id="@id/funText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/funMode"
+                android:layout_alignTop="@id/funMode"
+                android:layout_marginLeft="0.0dip"
+                android:layout_marginTop="0.0dip"
+                android:background="#00000000"
+                android:gravity="center"
+                android:shadowColor="#ff000000"
+                android:shadowRadius="8.0"
+                android:text="@string/fun"
+                android:textColor="#ffffffff"
+                android:textSize="30.0sp" />
         </RelativeLayout>
-        <RelativeLayout android:id="@id/storeBox2" android:background="@drawable/str_play" android:layout_width="316.0dip" android:layout_height="328.0dip" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true">
-            <TextView android:textSize="24.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/gplayText" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:layout_marginRight="0.0dip" android:text="@string/game_play" android:shadowColor="#ff000000" android:shadowRadius="8.0" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
-            <Button android:id="@id/noAds" android:background="@drawable/noads_shop" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
-            <TextView android:textSize="24.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/noadsText" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:text="@string/no_ads" android:shadowColor="#ff000000" android:shadowRadius="8.0" android:layout_alignLeft="@id/noAds" android:layout_alignTop="@id/noAds" />
-            <Button android:id="@id/FourLifes" android:background="@drawable/fourmushroom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
-            <Button android:id="@id/FiveLifes" android:background="@drawable/fivemushroom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
-            <Button android:id="@id/FiveLifes2" android:background="@drawable/fivemushroom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
-            <Button android:id="@id/gameoverProtection" android:background="@drawable/gameoverprot_shop" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
-            <TextView android:textSize="24.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/gopText" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:text="@string/game_over_protection" android:shadowColor="#ff000000" android:shadowRadius="8.0" android:layout_alignLeft="@id/gameoverProtection" android:layout_alignTop="@id/gameoverProtection" />
-            <Button android:id="@id/menuButton" android:background="@drawable/menu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" />
-            <TextView android:textSize="24.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/menuText" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:text="@string/menu" android:shadowColor="#ff000000" android:shadowRadius="8.0" android:layout_alignLeft="@id/menuButton" android:layout_alignTop="@id/menuButton" />
-            <ImageView android:id="@id/coinIcon" android:background="@drawable/yellow_coin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
-            <TextView android:textSize="20.0sp" android:textColor="#ffffffff" android:gravity="right|center" android:id="@id/coinText" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1460" android:layout_toLeftOf="@id/coinIcon" android:layout_alignBottom="@id/coinIcon" />
+
+        <RelativeLayout
+            android:id="@id/storeBox2"
+            android:layout_width="316.0dip"
+            android:layout_height="328.0dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/str_play" >
+
+            <TextView
+                android:id="@id/gplayText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="0.0dip"
+                android:layout_marginTop="0.0dip"
+                android:background="#00000000"
+                android:gravity="center"
+                android:shadowColor="#ff000000"
+                android:shadowRadius="8.0"
+                android:text="@string/game_play"
+                android:textColor="#ffffffff"
+                android:textSize="24.0sp" />
+
+            <Button
+                android:id="@id/noAds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/noads_shop" />
+
+            <TextView
+                android:id="@id/noadsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/noAds"
+                android:layout_alignTop="@id/noAds"
+                android:layout_marginLeft="0.0dip"
+                android:layout_marginTop="0.0dip"
+                android:background="#00000000"
+                android:gravity="center"
+                android:shadowColor="#ff000000"
+                android:shadowRadius="8.0"
+                android:text="@string/no_ads"
+                android:textColor="#ffffffff"
+                android:textSize="24.0sp" />
+
+            <Button
+                android:id="@id/FourLifes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/fourmushroom" />
+
+            <Button
+                android:id="@id/FiveLifes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/fivemushroom" />
+
+            <Button
+                android:id="@id/FiveLifes2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/fivemushroom" />
+
+            <Button
+                android:id="@id/gameoverProtection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/gameoverprot_shop" />
+
+            <TextView
+                android:id="@id/gopText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/gameoverProtection"
+                android:layout_alignTop="@id/gameoverProtection"
+                android:layout_marginLeft="0.0dip"
+                android:layout_marginTop="0.0dip"
+                android:background="#00000000"
+                android:gravity="center"
+                android:shadowColor="#ff000000"
+                android:shadowRadius="8.0"
+                android:text="@string/game_over_protection"
+                android:textColor="#ffffffff"
+                android:textSize="24.0sp" />
+
+            <Button
+                android:id="@id/menuButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/menu" />
+
+            <TextView
+                android:id="@id/menuText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/menuButton"
+                android:layout_alignTop="@id/menuButton"
+                android:layout_marginLeft="0.0dip"
+                android:layout_marginTop="0.0dip"
+                android:background="#00000000"
+                android:gravity="center"
+                android:shadowColor="#ff000000"
+                android:shadowRadius="8.0"
+                android:text="@string/menu"
+                android:textColor="#ffffffff"
+                android:textSize="24.0sp" />
+
+            <ImageView
+                android:id="@id/coinIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/yellow_coin" />
+
+            <TextView
+                android:id="@id/coinText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/coinIcon"
+                android:layout_toLeftOf="@id/coinIcon"
+                android:background="#00000000"
+                android:gravity="right|center"
+                android:text="1460"
+                android:textColor="#ffffffff"
+                android:textSize="20.0sp" />
         </RelativeLayout>
     </RelativeLayout>
+
 </RelativeLayout>

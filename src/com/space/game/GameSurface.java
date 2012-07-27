@@ -219,7 +219,7 @@ public abstract class GameSurface
           {
             while (true)
             {
-              return;
+              
               int i = 2131034127 + rand.nextInt(1);
               mp = MediaPlayer.create(mContext, i);
               mp.setAudioStreamType(3);
@@ -270,6 +270,7 @@ public abstract class GameSurface
             {
               editor.putInt("Lifes", j + -1);
               editor.commit();
+              break;
             }
             setLifes(-1);
           }
@@ -337,25 +338,31 @@ public abstract class GameSurface
                       }
                     }
                   });
-                return;
+                
                 editor.putInt("Lifes", 1 + settings.getInt("Lifes", 0));
                 editor.commit();
                 setLifes(1);
+                break;
               }
               editor.putInt("Points", 5 + settings.getInt("Points", 0));
               editor.commit();
+              break;
             }
             editor.putInt("Points", 10 + settings.getInt("Points", 0));
             editor.commit();
+            break;
           }
           editor.putInt("Points", 25 + settings.getInt("Points", 0));
           editor.commit();
+          break;
         }
         editor.putInt("Points", 50 + settings.getInt("Points", 0));
         editor.commit();
+        break;
       }
       editor.putInt("Points", 100 + settings.getInt("Points", 0));
       editor.commit();
+      break;
     }
   }
 
@@ -444,7 +451,7 @@ public abstract class GameSurface
     SurfaceHolder localSurfaceHolder = paramGameSurfaceView.getHolder();
     localSurfaceHolder.addCallback(paramGameSurfaceView);
     passAheadTouchEvents = true;
-    thread = new GameSurfaceThread(this, localSurfaceHolder, mContext, new Handler(this)
+    thread = new GameSurfaceThread(this, localSurfaceHolder, mContext, new Handler()
     {
       public void handleMessage()
       {
@@ -464,12 +471,12 @@ public abstract class GameSurface
         ships[paramInt1][paramInt2].setBitmap(shipFrames[paramInt1][4]);
         shipSmashedCounter = (1 + shipSmashedCounter);
         if (paramInt1 != 3)
-          break label219;
+          return;
         editor.putInt("Points", 10 + settings.getInt("Points", 0));
         editor.commit();
         i = 2131034123;
         if (paramInt1 != 0)
-          break label330;
+          return;
         i = 2131034112 + rand.nextInt(1);
         if (paramInt1 >= 4)
           i = 2131034116;
@@ -517,10 +524,11 @@ public abstract class GameSurface
                       {
                         while (true)
                         {
-                          return;
+                          
                           ships[paramInt1][paramInt2].setBitmap(shipFrames[(paramInt1 + 1)][4]);
+                          break;
                         }
-                        label219: if ((paramInt1 != 4) && (paramInt1 != 5))
+                        if ((paramInt1 != 4) && (paramInt1 != 5))
                           break;
                         editor.putInt("Points", 50 + settings.getInt("Points", 0));
                       }
@@ -529,8 +537,9 @@ public abstract class GameSurface
                       editor.putInt("Points", 100 + settings.getInt("Points", 0));
                     }
                     editor.putInt("Points", 1 + settings.getInt("Points", 0));
+                    break;
                   }
-                  label330: if (paramInt1 != 1)
+                  if (paramInt1 != 1)
                     break;
                   i = 2131034114;
                 }
@@ -540,6 +549,7 @@ public abstract class GameSurface
               }
             while (paramInt1 != 3);
             i = 2131034120;
+            break;
           }
           int[] arrayOfInt = shipLife[paramInt1];
           arrayOfInt[paramInt2] = (-1 + arrayOfInt[paramInt2]);
@@ -681,7 +691,8 @@ public abstract class GameSurface
           GameSurface.dyingbee = BitmapFactory.decodeResource(paramGameSurface.mContext.getResources(), 2130837577);
         paramGameSurface.shipSmashedCounter = 0;
         paramGameSurface.shipCounter = 0;
-        b4 = 0;
+        byte b4 = 0;
+        byte b6 = 0;
         if (b4 < 9)
           break label1330;
         paramGameSurface.isBonus = false;
@@ -700,7 +711,7 @@ public abstract class GameSurface
           paramGameSurface.isBonus = true;
           paramGameSurface.bonus = new SurfaceBitmap();
           if (GameSurface.rand.nextInt(2) != 1)
-            break label1418;
+            return;
           b6 = 1;
           paramGameSurface.bonusDir = b6;
           paramGameSurface.bonusAngle = 180;
@@ -714,7 +725,7 @@ public abstract class GameSurface
       {
         while (true)
         {
-          label1050: label1094: label1262: int i;
+          int i;
           while (true)
           {
             while (true)
@@ -801,7 +812,7 @@ public abstract class GameSurface
       }
     }
 
-    public void doDraw()
+    public void doDraw(Canvas paramCanvas)
     {
       byte b2;
       int j;
@@ -875,7 +886,7 @@ public abstract class GameSurface
         {
           while (i >= GameSurface.this.numberOfshipsWithType[b1])
             ++b1;
-          if ((GameSurface.this.smashed[b1][i] != 0) && (!(GameSurface.this.isAlphaing)))
+          if ((GameSurface.this.smashed[b1][i] != false) && (!(GameSurface.this.isAlphaing)))
             GameSurface.this.ships[b1][i].draw(paramCanvas, GameSurface.this.shipAngle[b1][i]);
           ++i;
         }
@@ -910,8 +921,8 @@ public abstract class GameSurface
           }
           GameSurface localGameSurface2 = GameSurface.this;
           localGameSurface2.shipSmashedCounter = (1 + localGameSurface2.shipSmashedCounter);
-          GameSurface.this.smashed[b2][j] = 1;
-          GameSurface.this.inScreen[b2][j] = 0;
+          GameSurface.this.smashed[b2][j] = true;
+          GameSurface.this.inScreen[b2][j] = false;
           GameSurface.this.mp = MediaPlayer.create(GameSurface.this.mContext, 2131034126);
           GameSurface.this.mp.setAudioStreamType(3);
           if (GameSurface.this.isSound)
@@ -972,10 +983,10 @@ public abstract class GameSurface
         label1329: GameSurface.this.protection = false;
         GameSurface.this.editor.putBoolean("Prot", false);
         GameSurface.this.editor.commit();
-        GameSurface localGameSurface3 = this$0;
+        GameSurface localGameSurface3 = GameSurface.this;
         localGameSurface3.shipSmashedCounter = (1 + localGameSurface3.shipSmashedCounter);
-        GameSurface.this.smashed[b2][j] = 1;
-        GameSurface.this.inScreen[b2][j] = 0;
+        GameSurface.this.smashed[b2][j] = true;
+        GameSurface.this.inScreen[b2][j] = false;
         GameSurface.this.mp = MediaPlayer.create(GameSurface.this.mContext, 2131034126);
         GameSurface.this.mp.setAudioStreamType(3);
         if (GameSurface.this.isSound)
@@ -993,7 +1004,7 @@ public abstract class GameSurface
             }
           });
       }
-      if ((GameSurface.this.beeInScreen[l] != 0) && (!(GameSurface.this.isAlphaing)))
+      if ((GameSurface.this.beeInScreen[l] != false) && (!(GameSurface.this.isAlphaing)))
       {
         if (!(GameSurface.this.paused))
           label1484: GameSurface.this.bees[l].setBitmap(GameSurface.access$6()[(GameSurface.this.counter / 4 % 4)]);
@@ -1009,7 +1020,7 @@ public abstract class GameSurface
       }
       label1617: p = new Paint();
       Paint localPaint = p;
-      GameSurface localGameSurface4 = this$0;
+      GameSurface localGameSurface4 = GameSurface.this;
       int i1 = -17 + localGameSurface4.alphaDegree;
       localGameSurface4.alphaDegree = i1;
       localPaint.setAlpha(Math.max(i1, 0));
@@ -1029,7 +1040,7 @@ public abstract class GameSurface
       {
         while (i2 >= GameSurface.this.numberOfshipsWithType[b3])
           ++b3;
-        if (GameSurface.this.smashed[b3][i2] != 0)
+        if (GameSurface.this.smashed[b3][i2] != false)
           GameSurface.this.ships[b3][i2].draw(paramCanvas, GameSurface.this.shipAngle[b3][i2], p);
         ++i2;
       }
@@ -1044,11 +1055,11 @@ public abstract class GameSurface
 
     public void doResume()
     {
-      if ((GameSurface.this.paused) && (GameSurface.access$9(this$0) > 0L))
+      if ((GameSurface.this.paused) && (GameSurface.access$9(GameSurface.this) > 0L))
       {
         long l1 = GameSurface.this.settings.getLong("PlayTimeDiscount", 0L);
         SharedPreferences.Editor localEditor = GameSurface.this.settings.edit();
-        long l2 = new Date().getTime() - GameSurface.access$9(this$0);
+        long l2 = new Date().getTime() - GameSurface.access$9(GameSurface.this);
         if (l2 > 0L)
           l1 = l1 + l2;
         localEditor.putLong("PlayTimeDiscount", l1);
@@ -1079,7 +1090,7 @@ public abstract class GameSurface
         f = 26.0F;
         b1 = 0;
         if (b1 < 9)
-          break label320;
+          break;
         j = (int)(13.0F * GameSurface.this.scale);
         k = 0;
       }
@@ -1094,15 +1105,17 @@ public abstract class GameSurface
             if ((GameSurface.this.isBonus) && (GameSurface.this.bonus != null) && (!(GameSurface.this.isKillingBee)) && ((int)paramMotionEvent.getX() > GameSurface.this.bonus.getLeft() - (int)(0.23999999463558197F * GameSurface.this.bonus.getWidth() * GameSurface.this.scale)) && ((int)paramMotionEvent.getX() < GameSurface.this.bonus.getLeft() + GameSurface.this.bonus.getWidth() + (int)(0.23999999463558197F * GameSurface.this.bonus.getWidth() * GameSurface.this.scale)) && ((int)paramMotionEvent.getY() > GameSurface.this.bonus.getTop() - (int)(0.23999999463558197F * GameSurface.this.bonus.getHeight() * GameSurface.this.scale)) && ((int)paramMotionEvent.getY() < GameSurface.this.bonus.getTop() + GameSurface.this.bonus.getHeight() + (int)(0.23999999463558197F * GameSurface.this.bonus.getHeight() * GameSurface.this.scale)))
               GameSurface.this.bonusWasSmashed();
             b2 = 1;
+            
           }
           f = GameSurface.this.acceleration();
-        }
-        label320: int i = 0;
+          break;
+        };
+        int i = 0;
         while (true)
         {
           while (i >= GameSurface.this.numberOfshipsWithType[b1])
             ++b1;
-          if ((!(GameSurface.this.isKillingBee)) && (GameSurface.this.smashed[b1][i] == 0) && ((int)paramMotionEvent.getX() > GameSurface.this.ships[b1][i].getLeft() - (int)(0.23999999463558197F * GameSurface.this.ships[b1][i].getWidth()) - (int)(0.69999998807907104F * f)) && ((int)paramMotionEvent.getX() < GameSurface.this.ships[b1][i].getLeft() + GameSurface.this.ships[b1][i].getWidth() + (int)(0.23999999463558197F * GameSurface.this.ships[b1][i].getWidth()) + (int)(0.69999998807907104F * f)) && ((int)paramMotionEvent.getY() > GameSurface.this.ships[b1][i].getTop() - (int)(0.23999999463558197F * GameSurface.this.ships[b1][i].getHeight()) - (int)(0.69999998807907104F * f)) && ((int)paramMotionEvent.getY() < GameSurface.this.ships[b1][i].getTop() + GameSurface.this.ships[b1][i].getHeight() + (int)(0.23999999463558197F * GameSurface.this.ships[b1][i].getHeight()) + (int)(0.69999998807907104F * f)) && ((((b1 != 4) && (b1 != 6) && (b1 != 7)) || (paramMotionEvent.getAction() == 0))))
+          if ((!(GameSurface.this.isKillingBee)) && (GameSurface.this.smashed[b1][i] == false) && ((int)paramMotionEvent.getX() > GameSurface.this.ships[b1][i].getLeft() - (int)(0.23999999463558197F * GameSurface.this.ships[b1][i].getWidth()) - (int)(0.69999998807907104F * f)) && ((int)paramMotionEvent.getX() < GameSurface.this.ships[b1][i].getLeft() + GameSurface.this.ships[b1][i].getWidth() + (int)(0.23999999463558197F * GameSurface.this.ships[b1][i].getWidth()) + (int)(0.69999998807907104F * f)) && ((int)paramMotionEvent.getY() > GameSurface.this.ships[b1][i].getTop() - (int)(0.23999999463558197F * GameSurface.this.ships[b1][i].getHeight()) - (int)(0.69999998807907104F * f)) && ((int)paramMotionEvent.getY() < GameSurface.this.ships[b1][i].getTop() + GameSurface.this.ships[b1][i].getHeight() + (int)(0.23999999463558197F * GameSurface.this.ships[b1][i].getHeight()) + (int)(0.69999998807907104F * f)) && ((((b1 != 4) && (b1 != 6) && (b1 != 7)) || (paramMotionEvent.getAction() == 0))))
             GameSurface.this.sheWasSmashed(b1, i);
           ++i;
         }
@@ -1126,7 +1139,7 @@ public abstract class GameSurface
 
     public void run()
     {
-      Canvas localCanvas2;
+      Canvas localCanvas2=null;
       SurfaceHolder localSurfaceHolder2;
       if (CONF == null)
         return;
@@ -1153,7 +1166,7 @@ public abstract class GameSurface
         }
         finally
         {
-          long l5;
+          long l5=1000;
           try
           {
             do
@@ -1168,7 +1181,7 @@ public abstract class GameSurface
           }
           catch (InterruptedException localInterruptedException)
           {
-            Canvas localCanvas1;
+            Canvas localCanvas1=null;
             SurfaceHolder localSurfaceHolder1;
             try
             {
@@ -1181,14 +1194,14 @@ public abstract class GameSurface
               {
                 do
                 {
-                  GameSurface localGameSurface1 = GameSurface.this.;
+                  GameSurface localGameSurface1 = GameSurface.this;
                   localGameSurface1.counter = (1 + localGameSurface1.counter);
                   long l1 = SystemClock.uptimeMillis();
                   doDraw(localCanvas1);
                   if (GameSurface.this.isCircleing)
                   {
                     GameSurface.this.killingBeeDraw(localCanvas1);
-                    GameSurface localGameSurface2 = GameSurface.this.;
+                    GameSurface localGameSurface2 = GameSurface.this;
                     int i = localGameSurface2.killingBeeCounter;
                     localGameSurface2.killingBeeCounter = (i + 1);
                     if (i > 40)
@@ -1202,16 +1215,7 @@ public abstract class GameSurface
               }
               finally
               {
-                while (true)
-                {
-                  
-                  throw localObject2;
-                  
-                  if (0 != 0)
-                    mSurfaceHolder.unlockCanvasAndPost(null);
-                  throw localObject1;
-                  localInterruptedException = localInterruptedException;
-                }
+                
               }
             }
           }
