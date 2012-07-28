@@ -9,12 +9,12 @@ public class SurfaceBitmap
   private int cX;
   private int cY;
   private int left;
-  private Bitmap mBitmap;
   private int top;
-
-  public SurfaceBitmap(Bitmap paramBitmap)
+  private Bitmap mBitmap;
+  
+  public SurfaceBitmap(Bitmap bitmap)
   {
-    setBitmap(paramBitmap);
+    setBitmap(bitmap);
   }
   
   public SurfaceBitmap()
@@ -22,27 +22,22 @@ public class SurfaceBitmap
     mBitmap=null;
   }
 
-  public Bitmap bitmap()
-  {
-    return this.mBitmap;
-  }
-
   public void draw(Canvas paramCanvas, int paramInt)
   {
     draw(paramCanvas, paramInt, null);
   }
 
-  public void draw(Canvas paramCanvas, int paramInt, Paint paramPaint)
+  public void draw(Canvas canvas, int degrees, Paint paint)
   {
-    paramCanvas.save();
-    paramCanvas.rotate(paramInt, this.cX, this.cY);
-    paramCanvas.drawBitmap(this.mBitmap, this.left, this.top, paramPaint);
-    paramCanvas.restore();
+    canvas.save();
+    canvas.rotate(degrees, this.cX, this.cY);
+    canvas.drawBitmap(this.mBitmap, this.left, this.top, paint);
+    canvas.restore();
   }
 
-  public void draw(Canvas paramCanvas, Paint paramPaint)
+  public void draw(Canvas canvas, Paint paint)
   {
-    draw(paramCanvas, 0, paramPaint);
+    draw(canvas, 0, paint);
   }
   
   private int centerX()
@@ -83,15 +78,20 @@ public class SurfaceBitmap
     return i;
   }
 
-  public void setBitmap(Bitmap paramBitmap)
+  public Bitmap getBitmap()
   {
-    this.mBitmap = paramBitmap;
+    return this.mBitmap;
+  }
+  
+  public void setBitmap(Bitmap bitmap)
+  {
+    this.mBitmap = bitmap;
   }
 
-  public void setPosition(int paramInt1, int paramInt2)
+  public void setPosition(int paramLeft, int paramTop)
   {
-    this.top = paramInt2;
-    this.left = paramInt1;
+    this.top = paramTop;
+    this.left = paramLeft;
     this.cX = centerX();
     this.cY = centerY();
   }

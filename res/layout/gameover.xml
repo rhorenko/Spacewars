@@ -12,8 +12,10 @@
         android:layout_width="142.0dip"
         android:layout_height="89.0dip"
         android:layout_centerHorizontal="true"
+        
         android:layout_marginTop="280.0dip"
-        android:src="@drawable/play_again" />
+        android:src="@drawable/play_again" 
+        />
 
     <ImageView
         android:id="@id/menuButton"

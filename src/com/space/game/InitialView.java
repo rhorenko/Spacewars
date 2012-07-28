@@ -28,26 +28,24 @@ import com.space.wars.Constants;
 public class InitialView extends Activity
   
 {
-  static final int ADS_MAGIC_CONSTANT = 150;
+  
   public static final String MM_APID = "58057";
   public static final String MM_INTER_APID = "58057";
   public static final String MM_TEST_APID = "28911";
   public static final String MM_TEST_INTERID = "28911";
-  public static final int NUMBER_OF_GOOGLE_ADS = 5;
+  
   private static final int NUM_META_TAGS = 9;
-  public static int adCounter;
-  public static boolean[] adVisibility;
+  
   public static MediaPlayer backgroundMp;
   public static Boolean backgroundMpErrored;
-  public static int curAd;
-  public static int curGoogleAd;
+  
   public static Boolean initialViewCreated;
   public static RelativeLayout layoutView;
   public static int levelCount;
   public static InitialView mainInstance;
   public static boolean menuHasBeenJustLoaded = false;
   public static boolean[] metas;
-  public static boolean mmAdShowing;
+  
   public static final Random rand = new Random();
   public static Activity shownActivity;
   final int antSizeX;
@@ -66,7 +64,7 @@ public class InitialView extends Activity
 
   static
   {
-    mmAdShowing = false;
+    
     backgroundMpErrored = Boolean.valueOf(false);
     initialViewCreated = Boolean.valueOf(false);
   }
@@ -399,17 +397,6 @@ public class InitialView extends Activity
     }
   }
 
-  public static View getBannerView()
-  {
-    Object localObject;
-    if (banner != null)
-      localObject = banner;
-    while (true)
-    {
-      return localObject;
-      localObject = shownAd;
-    }
-  }
 
   public static void playButtonSound(String paramString, Context paramContext)
   {
@@ -440,65 +427,6 @@ public class InitialView extends Activity
     }
   }
 
-  private void setupAdMobAds(Activity paramActivity, AdListener paramAdListener)
-  {
-    AdSize localAdSize;
-    byte b;
-    if (getResources().getDisplayMetrics().heightPixels > 1000)
-    {
-      localAdSize = AdSize.IAB_LEADERBOARD;
-      ad[0] = new AdView(paramActivity, localAdSize, "a14e2db2ef9c88c");
-      ad[1] = new AdView(paramActivity, localAdSize, "a14e2db2d15abe6");
-      ad[2] = new AdView(paramActivity, localAdSize, "a14e2db2b3adc23");
-      ad[3] = new AdView(paramActivity, localAdSize, "a14e2db2984c283");
-      ad[4] = new AdView(paramActivity, localAdSize, "a14e2db280c6d07");
-      b = 0;
-    }
-    while (true)
-    {
-      while (b >= 5)
-      {
-        shownAd = ad[0];
-        return;
-        localAdSize = AdSize.BANNER;
-      }
-      ad[b].setAdListener(paramAdListener);
-      ad[b].loadAd(new AdRequest());
-      layoutView.addView(ad[b]);
-      ++b;
-    }
-  }
-
-  public static void setupMillennialAds()
-  {
-    Log.i("AS", "Call MM Interstitial");
-    new Hashtable().put("gender", "female");
-  }
-
-  private void setupRevMobAds(Activity paramActivity)
-  {
-    banner = new Banner("4fc6792ca5062c00080000cc", this);
-    layoutView.removeAllViews();
-    layoutView.addView(banner);
-  }
-
-  public boolean appInstalledOrNot(String paramString)
-  {
-    byte b;
-    PackageManager localPackageManager = getPackageManager();
-    try
-    {
-      localPackageManager.getPackageInfo(paramString, 1);
-      b = 1;
-      return b;
-    }
-    catch (PackageManager.NameNotFoundException localNameNotFoundException)
-    {
-      while (true)
-        b = 0;
-    }
-  }
-
   protected void finalize()
   {
     try
@@ -512,29 +440,6 @@ public class InitialView extends Activity
     }
   }
 
-  public boolean isCNLocale(Context paramContext)
-  {
-    boolean bool;
-    if ((paramContext != null) && (paramContext.getResources() != null) && (paramContext.getResources().getConfiguration() != null) && (paramContext.getResources().getConfiguration().locale != null))
-      bool = paramContext.getResources().getConfiguration().locale.getISO3Country().equals("CANADA");
-    while (true)
-    {
-      return bool;
-      byte b = 0;
-    }
-  }
-
-  public boolean isUSLocale(Context paramContext)
-  {
-    boolean bool;
-    if ((paramContext != null) && (paramContext.getResources() != null) && (paramContext.getResources().getConfiguration() != null) && (paramContext.getResources().getConfiguration().locale != null))
-      bool = paramContext.getResources().getConfiguration().locale.getISO3Country().equals("USA");
-    while (true)
-    {
-      return bool;
-      byte b = 0;
-    }
-  }
 
   public void onCreate(Bundle paramBundle)
   {
