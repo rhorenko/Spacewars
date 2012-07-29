@@ -44,8 +44,8 @@ public class LevelsList
     numberOfLevels = c.length;
   }
 
-  public static Class<?> getLevel(int param)
+  public static Class<?> getLevel(int lvlNum)
   {
-    return c[param];
+    return c[lvlNum];
   }
 }

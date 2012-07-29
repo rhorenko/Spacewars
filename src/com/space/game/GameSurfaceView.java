@@ -10,29 +10,29 @@ public class GameSurfaceView extends SurfaceView implements
 		SurfaceHolder.Callback {
 	public final static String TAG = "SpaceWars->GameSurfaceView";
 
-	private GameSurface gameSurface;
+	private GameSurface mGameSurface;
 
-	public GameSurfaceView(Context paramContext) {
-		super(paramContext);
+	public GameSurfaceView(Context context) {
+		super(context);
 		
 	}
 
-	public boolean onTouchEvent(MotionEvent paramMotionEvent) {
-		return gameSurface.thread.onTouchEvent(paramMotionEvent);
+	public boolean onTouchEvent(MotionEvent motionEvent) {
+		return mGameSurface.thread.onTouchEvent(motionEvent);
 	}
 
-	public void setGameSurface(GameSurface paramGameSurface) {
-		gameSurface = paramGameSurface;
+	public void setGameSurface(GameSurface gameSurface) {
+		mGameSurface = gameSurface;
 	}
 
 	public void setSurfaceSize(int paramInt1, int paramInt2) {
-		gameSurface.getThread().setSurfaceSize(paramInt1, paramInt2);
+		mGameSurface.getThread().setSurfaceSize(paramInt1, paramInt2);
 	}
 
 	public void stop() {
 		try {
-			if (gameSurface != null)
-				gameSurface.thread.join();
+			if (mGameSurface != null)
+				mGameSurface.thread.join();
 			return;
 		} catch (InterruptedException localInterruptedException) {
 			Log.i(TAG, localInterruptedException.getMessage());
@@ -41,14 +41,14 @@ public class GameSurfaceView extends SurfaceView implements
 
 	public void surfaceChanged(SurfaceHolder paramSurfaceHolder, int paramInt1,
 			int paramInt2, int paramInt3) {
-		if (this.gameSurface != null)
-			gameSurface.thread.setSurfaceSize(paramInt2, paramInt3);
+		if (this.mGameSurface != null)
+			mGameSurface.thread.setSurfaceSize(paramInt2, paramInt3);
 	}
 
 	public void surfaceCreated(SurfaceHolder paramSurfaceHolder) {
 		try {
-			if (!(gameSurface.thread.isAlive()))
-				gameSurface.thread.start();
+			if (!(mGameSurface.thread.isAlive()))
+				mGameSurface.thread.start();
 			return;
 		} catch (IllegalThreadStateException localIllegalThreadStateException) {
 			Log.i(TAG, localIllegalThreadStateException.getMessage());

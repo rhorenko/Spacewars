@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">-Ant Smasher-</string>
+    <string name="app_name">Space Wars</string>
     <string name="crop">Crop</string>
     <string name="crop_image">Choose Image</string>
     <string name="select_picture">Select Picture</string>

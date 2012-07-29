@@ -9,9 +9,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-sdk android:minSdkVersion="7" />
@@ -25,13 +22,12 @@
         android:xlargeScreens="false" />
 
     <application
-        android:debuggable="false"
+        android:debuggable="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:screenOrientation="portrait" >
         <activity
-            android:name="com.space.game.InitialView"
-            android:configChanges="orientation"
+            android:name="com.space.wars.MainActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
@@ -41,18 +37,20 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.space.game.InitialView"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
             android:name="com.space.game.Menu"
-            android:configChanges="orientation"
             android:label="Menu"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.space.game.PlayMenu"
-            android:configChanges="orientation"
             android:label="PlayMenu"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.space.game.AskUserInfo"
-            android:configChanges="orientation"
             android:label="AskUserInfo"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:windowSoftInputMode="adjustPan" />
@@ -62,102 +60,19 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.space.game.HighScores"
-            android:configChanges="orientation"
             android:label="High Scores"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.space.game.GameOver"
-            android:configChanges="orientation"
             android:label="Game Over"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name="com.space.game.Twitter"
-            android:configChanges="orientation"
-            android:label="Twitter"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="com.space.game.FBCustom"
-            android:configChanges="orientation"
-            android:label="FBCustom"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.space.game.Options"
             android:configChanges="orientation"
             android:label="Options"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="com.space.game.GameActivity"
-            android:configChanges="keyboard|orientation|screenLayout"
-            android:label="GameActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="com.google.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-        <activity
-            android:name="com.space.game.StoreActivity"
-            android:configChanges="orientation|screenLayout"
-            android:label="StoreActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="com.space.game.TutorialActivity"
-            android:label="TutorialActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="com.space.game.ContentHandler"
-            android:configChanges="orientation|screenLayout"
-            android:label="ContentHandler"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="com.space.game.InfiniteGameActivity"
-            android:configChanges="orientation|screenLayout"
-            android:label="InfiniteGameActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="com.paypal.android.MEP.PayPalActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.flurry.android.CatalogActivity"
-            android:theme="@android:style/Theme.Translucent" >
-            <intent-filter>
-                <action android:name="com.flurry.android.ACTION_CATALOG" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.millennialmedia.android.MMAdViewOverlayActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.millennialmedia.android.VideoPlayer"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-
-        <service
-            android:name="AlarmService_Service"
-            android:exported="false"
-            android:process=":remote" />
-        <service
-            android:name="com.apperhand.device.android.AndroidSDKProvider"
-            android:enabled="true" />
-        <service android:name="com.space.game.inapp.BillingService" />
-
-        <receiver android:name="com.space.game.BillingReceiver" >
-            <intent-filter>
-                <action android:name="com.android.vending.billing.IN_APP_NOTIFY" />
-                <action android:name="com.android.vending.billing.RESPONSE_CODE" />
-                <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED" />
-            </intent-filter>
-        </receiver>
-
-        <activity
-            android:name="com.bestcoolfungames.imagecropper.ImageCropper"
-            android:configChanges="keyboardHidden|orientation"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" />
-
-        <receiver android:name="com.space.game.NotifyAlarm" />
+        
     </application>
 
 </manifest>

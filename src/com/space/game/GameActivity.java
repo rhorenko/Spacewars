@@ -53,11 +53,12 @@ public class GameActivity extends Activity {
 	private GameSurfaceView surfaceView;
 	private Activity thisActivity;
 	int transitionFlag = 0;
-
+	
 	protected int nextLevel() {
 		byte b;
 		int k;
 		int i = InitialView.rand.nextInt(LevelsList.numberOfLevels);
+		
 		if (levelChosen[i] != false) {
 			i = InitialView.rand.nextInt(LevelsList.numberOfLevels);
 			if (levelChosen[i] != false) {
@@ -73,6 +74,8 @@ public class GameActivity extends Activity {
 				}
 			}
 		}
+		
+		
 		while (true) {
 			while (true) {
 				while (true) {
@@ -109,6 +112,8 @@ public class GameActivity extends Activity {
 			}
 			levelChosen[i] = true;
 		}
+		
+		
 	}
 
 	public void onCreate(Bundle paramBundle) {
@@ -157,8 +162,7 @@ public class GameActivity extends Activity {
 			pauseWarning.setLayoutParams(localLayoutParams2);
 			pauseButton.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					GameActivity.this.pause(Boolean.valueOf(false));
+					GameActivity.this.pause(false);
 				}
 			});
 			f = getApplicationContext().getResources().getDisplayMetrics().density;
@@ -236,15 +240,13 @@ public class GameActivity extends Activity {
 			localTranslateAnimation2.setFillBefore(true);
 			pauseWarning.startAnimation(localTranslateAnimation2);
 			localTranslateAnimation2
-					.setAnimationListener(new Animation.AnimationListener(this,
-							i) {
-						public void onAnimationEnd() {
+					.setAnimationListener(new Animation.AnimationListener() {
+						public void onAnimationEnd(Animation arg0) {
 							RelativeLayout.LayoutParams localLayoutParams = new RelativeLayout.LayoutParams(
 									val$deviceWidth, -2);
 							localLayoutParams.leftMargin = (-val$deviceWidth);
 							localLayoutParams.topMargin = 200;
-							this$0.pauseWarning
-									.setLayoutParams(localLayoutParams);
+							GameActivity.pauseWarning.setLayoutParams(localLayoutParams);
 							this$0.pauseWarning.setVisibility(4);
 							((GameSurface) this$0.gameSurface).doResume();
 							GameActivity.access$1(this$0,
@@ -252,11 +254,14 @@ public class GameActivity extends Activity {
 											.access$0(this$0));
 						}
 
-						public void onAnimationRepeat() {
+						public void onAnimationRepeat(Animation animation) {
 						}
 
-						public void onAnimationStart() {
+						public void onAnimationStart(Animation animation) {
 						}
+
+						
+
 					});
 		}
 		while (true) {
@@ -275,9 +280,8 @@ public class GameActivity extends Activity {
 			localTranslateAnimation1.setFillBefore(true);
 			pauseWarning.startAnimation(localTranslateAnimation1);
 			localTranslateAnimation1
-					.setAnimationListener(new Animation.AnimationListener(this,
-							i) {
-						public void onAnimationEnd() {
+					.setAnimationListener(new Animation.AnimationListener() {
+						public void onAnimationEnd(Animation arg0) {
 							RelativeLayout.LayoutParams localLayoutParams = new RelativeLayout.LayoutParams(
 									val$deviceWidth, -2);
 							localLayoutParams.leftMargin = 0;
@@ -286,10 +290,10 @@ public class GameActivity extends Activity {
 									.setLayoutParams(localLayoutParams);
 						}
 
-						public void onAnimationRepeat() {
+						public void onAnimationRepeat(Animation arg0) {
 						}
 
-						public void onAnimationStart() {
+						public void onAnimationStart(Animation arg0) {
 						}
 					});
 		}

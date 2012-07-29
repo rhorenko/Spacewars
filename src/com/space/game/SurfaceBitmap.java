@@ -4,6 +4,14 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
+/**
+ * 
+ * @author Roman Gorenko
+ * 
+ * This class contains bitmap for different game objects  (ship, big ship, mine, up, life)
+ *
+ */
+
 public class SurfaceBitmap
 {
   private int cX;
@@ -12,6 +20,10 @@ public class SurfaceBitmap
   private int top;
   private Bitmap mBitmap;
   
+  /**
+   * Constructor
+   * @param bitmap
+   */
   public SurfaceBitmap(Bitmap bitmap)
   {
     setBitmap(bitmap);
@@ -95,4 +107,5 @@ public class SurfaceBitmap
     this.cX = centerX();
     this.cY = centerY();
   }
+  
 }
